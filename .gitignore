@@ -1,0 +1,17 @@
+*.env*
+.DS_Store
+.editorconfig
+.eslintrc.js
+.pa11yci.js
+.stylelintrc
+package-lock.json
+
+/node*
+/npm-debug.log*
+/public*
+/pa11y_screenCapture/*
+
+/.haikro-cache/
+/.idea/
+/.sass-cache/
+/bower_components/
