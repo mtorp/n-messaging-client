@@ -1,0 +1,19 @@
+{
+  "name": "n-messaging-client",
+  "homepage": "",
+  "description": "",
+  "main": [
+    "main.js",
+    "main.scss"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "o-banner": "^1.4.0"
+  }
+}

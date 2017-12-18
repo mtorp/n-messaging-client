@@ -1,0 +1,35 @@
+<div class="n-messaging-banner n-messaging-banner--closed{{#if themeMarketing}} n-messaging-banner--marketing{{/if}}{{#if small}} n-messaging-banner--small{{/if}}" data-o-component="n-messaging-banner" data-n-messaging-component="">
+	<div class="n-messaging-banner__outer">
+		<div class="n-messaging-banner__inner" data-o-banner-inner="" data-n-messaging-banner-inner="">
+
+			{{#if contentLong}}
+			<!-- Content to display on larger screens -->
+			<div class="n-messaging-banner__content n-messaging-banner__content--long">
+				<p>{{contentLong}}</p>
+			</div>
+			{{/if}}
+
+			{{#if contentShort}}
+			<!-- Content to display on smaller screens -->
+			<div class="n-messaging-banner__content n-messaging-banner__content--short">
+				<p>{{contentShort}}</p>
+			</div>
+			{{/if}}
+
+			<!-- Button and link -->
+			<div class="n-messaging-banner__actions">
+				{{#if buttonUrl}}
+				<div class="n-messaging-banner__action">
+					<a href="{{buttonUrl}}" class="n-messaging-banner__button">{{buttonLabel}}</a>
+				</div>
+				{{/if}}
+				{{#if linkUrl}}
+				<div class="n-messaging-banner__action n-messaging-banner__action--secondary">
+					<a href="{{linkUrl}}" class="n-messaging-banner__link">{{linkLabel}}</a>
+				</div>
+				{{/if}}
+			</div>
+
+		</div>
+	</div>
+</div>
