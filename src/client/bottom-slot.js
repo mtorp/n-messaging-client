@@ -1,7 +1,6 @@
 const BANNER_CLASS = 'n-messaging-banner';
 
 module.exports = function (options={}) {
-	console.log('render called with', options);
 	// TODO: fix import problem and move to top of scope?
 	const oBanner = require('o-banner');
 
@@ -44,7 +43,6 @@ module.exports = function (options={}) {
 
 	function messageEvent (messageId) {
 		return function (action) {
-			console.log('log event', action)
 			document.body.dispatchEvent(new CustomEvent('oTracking.event', {
 				detail: {
 					category: 'component',

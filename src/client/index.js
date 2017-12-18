@@ -32,7 +32,6 @@ module.exports = {
 		if (position === 'bottom') return bottomSlot;
 	},
 	handleError (error) {
-		console.log('error in n-messaging-client init()');
 		console.error(error);
 	}
 };
