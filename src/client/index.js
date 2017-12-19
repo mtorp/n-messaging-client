@@ -12,7 +12,7 @@ module.exports = {
 				id: dataSet.nMessagingId,
 				content: elm.querySelector('[data-n-messaging-component]'),
 				lazy: dataSet.nMessagingLazy === 'true'
-			}
+			};
 		});
 		if (messages.length > 0) {
 			Promise.all(messages.map(msg => this.initialiseMessage(msg))).catch(this.handleError);
@@ -32,6 +32,7 @@ module.exports = {
 		if (position === 'bottom') return bottomSlot;
 	},
 	handleError (error) {
-		console.error(error);
+		throw error;
+		// console.error(error);
 	}
 };

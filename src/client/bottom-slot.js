@@ -51,7 +51,7 @@ module.exports = function (options={}) {
 				},
 				bubbles: true
 			}));
-		}
+		};
 	}
 
 	function listen (el, ev, action) {

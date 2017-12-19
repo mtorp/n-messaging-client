@@ -1,7 +1,7 @@
 {
   "name": "n-messaging-client",
-  "homepage": "",
-  "description": "",
+  "homepage": "https://github.com/Financial-Times/n-messaging-client",
+  "description": "Lightweight first party messaging for use with \"The Brain\"",
   "main": [
     "main.js",
     "main.scss"

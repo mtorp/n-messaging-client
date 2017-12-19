@@ -4,7 +4,7 @@ module.exports = function (params) {
 	// params: {
 	// 	messageName
 	// }
-	return new Promise((resolve, reject) => {
+	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve(Object.assign({}, {
 				theme: ['marketing'],
@@ -17,4 +17,4 @@ module.exports = function (params) {
 			}, params));
 		}, 2000);
 	});
-}
+};
