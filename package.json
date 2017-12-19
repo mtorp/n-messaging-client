@@ -1,7 +1,8 @@
 {
   "name": "@financial-times/n-messaging-client",
   "version": "0.0.0",
-  "description": "",
+  "repository": "Financial-Times/n-messaging-client",
+  "description": "Lightweight first party messaging for use with \"The Brain\"",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,9 +10,7 @@
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "prepush": "make verify -j3"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@financial-times/n-gage": "^1.19.0"
   }
