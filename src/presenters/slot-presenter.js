@@ -1,5 +1,5 @@
 'use strict';
-const MANIFEST = require('../../manifest.json');
+const MANIFEST = require('../../manifest');
 
 const BOTTOM_SLOT_FLAG = 'messageSlotBottom';
 const CLIENT_SIDE_VARIANT_REGEXP = /Client$/;

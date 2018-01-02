@@ -3,7 +3,9 @@
 /bower_components/
 /node_modules/
 /demos/
-/tests/
+/test/
+/pa11y_screenCapture/
+/public/
 
 .babelrc
 .DS_Store
