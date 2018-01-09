@@ -5,7 +5,7 @@
 :construction: _Currently in active development / testing._ :construction:
 
 **Todo** :rocket:
-- [ ] The "top" message slot, aka service messages
+- [ ] The "top" message slot, aka service messages (`n-alert`)
 - [ ] `next-messaging-guru` api aka async message configuration
 - [ ] port over existing messages
 - [ ] unit tests
