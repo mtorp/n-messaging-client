@@ -6,7 +6,7 @@
 
 **Todo** :rocket:
 - [ ] The "top" message slot, aka service messages (`n-alert`)
-- [ ] `next-messaging-guru` api aka async message configuration
+- [ ] [`next-messaging-guru`](https://github.com/Financial-Times/next-messaging-guru) api aka async message configuration
 - [ ] port over existing messages
 - [ ] unit tests
 - [ ] a11y tests for all messages
@@ -114,7 +114,7 @@ Messaging slot ammit "flags" use "Brain (TM)" logic to decide which variant to p
 - Variants will not work until both the previous steps are met.
 - You can now add your new variant config within `n-messaging-client` in the [`manifest.js`](https://github.com/Financial-Times/n-messaging-client/blob/master/manifest.js).
 - Add the relevant templates, css and js to this component (`n-messaging-client`).
-- If your new message variant is `client` (aka lazy / async) then you will need to set up a new matcher on `next-messaging-guru`(tbc).
+- If your new message variant is `client` (aka lazy / async) then you will need to set up a new matcher on [`next-messaging-guru`](https://github.com/Financial-Times/next-messaging-guru).
 - Build and test your new variant with `make demo`
 - Ship your changes by versioning this component and updating the relevant apps (`next-article` etc.)(`n-ui` dependants (tbc)) to pull it in
 
@@ -148,7 +148,7 @@ Messaging slot ammit "flags" use "Brain (TM)" logic to decide which variant to p
 - **The Presenter**: A handlebars helper that is used within the main `slot.html` template. The presenter will interpret the users flags, load the relevant config from the `manifest` and populate a data object that is referenced by the handlebars templates.
 - **The Components**: The various message resources including: templates, js and css.
 - **The Client js**: In addition to individual message js there is shared "interaction" and initialisation scripts. Interactions include "act", "view", "close, "skip" and these message events flow back into VoltDB for use by "The Brain(TM)"
-- **The Lazy Load js**: Client side code to load in and init async messages that require a client side call to `next-messaging-guru`
+- **The Lazy Load js**: Client side code to load in and init async messages that require a client side call to [`next-messaging-guru`](https://github.com/Financial-Times/next-messaging-guru)
 
 ### Holistic Messaging Flow
 
