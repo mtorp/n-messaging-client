@@ -17,7 +17,7 @@ demo: demo-build
 	@DEMO_MODE=true node demos/app
 
 demo-with-guru: demo-build
-	@GURU_URL=http://local.ft.com:3004/message DEMO_MODE=true node demos/app
+	@GURU_URL=http://local.ft.com:3004/__message DEMO_MODE=true node demos/app
 
 a11y: demo-build
 	@PA11Y=true DEMO_MODE=true node demos/app
