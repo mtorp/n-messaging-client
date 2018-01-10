@@ -6,7 +6,8 @@
 
 **Todo** :rocket:
 - [ ] The "top" message slot, aka service messages (`n-alert`)
-- [ ] [`next-messaging-guru`](https://github.com/Financial-Times/next-messaging-guru) api aka async message configuration
+- [x] [`next-messaging-guru`](https://github.com/Financial-Times/next-messaging-guru) api aka async message configuration
+- [ ] polish
 - [ ] port over existing messages
 - [ ] unit tests
 - [ ] a11y tests for all messages
