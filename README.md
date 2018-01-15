@@ -5,7 +5,7 @@
 :construction: _Currently in active development / testing._ :construction:
 
 **Todo** :rocket:
-- [ ] The "top" message slot, aka service messages (`n-alert`)
+- [ ] The "top" message slot, aka service messages ([`n-alert-banner`](https://github.com/Financial-Times/n-alert-banner))
 - [x] [`next-messaging-guru`](https://github.com/Financial-Times/next-messaging-guru) api aka async message configuration
 - [ ] polish
 - [ ] port over existing messages
@@ -121,7 +121,7 @@ Messaging slot ammit "flags" use "Brain (TM)" logic to decide which variant to p
 
 ### Under the hood :wrench:
 - The "bottom" message slot uses [`o-banner`](http://registry.origami.ft.com/components/o-banner)
-- The "top" message slot uses `n-alert`
+- The "top" message slot uses [`n-alert-banner`](https://github.com/Financial-Times/n-alert-banner)
 
 ## Overview
 
@@ -136,7 +136,7 @@ Messaging slot ammit "flags" use "Brain (TM)" logic to decide which variant to p
 
 ### The Solution
 - Message hierarchy as decided by "The Brain(TM)" (`next-ammit-api`)
-- Consistent design and clear usage guidlines (`o-banner` and `n-alert`)
+- Consistent design and clear usage guidlines (`o-banner` and `n-alert-banner`)
 - Simple integration to applications (`n-messaging-client`)
 - No conflicting messages on the page at once ("top" & "bottom" slots)
 - Standardised, user based and persistent interaction event tracking (`n-messaging-client`, VoltDB & `next-ammit-api`)
