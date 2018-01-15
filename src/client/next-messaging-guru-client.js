@@ -1,4 +1,4 @@
-module.exports = function ({ guruEndpoint='__message', name }={}) {
+module.exports = function ({ guruEndpoint='/__message', name }={}) {
 	const url = `${guruEndpoint}/${name}`;
 	const options = {
 		method: 'GET',
