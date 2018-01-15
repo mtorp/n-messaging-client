@@ -4,6 +4,7 @@
 const { resolve } = require('path');
 const chalk = require('chalk');
 const express = require('@financial-times/n-internal-tool');
+const proxy = require('./proxy-controller');
 
 const app = module.exports = express({
 	name: 'public',
@@ -23,8 +24,11 @@ const app = module.exports = express({
 	s3o: false
 });
 
+
+app.all('/__message/:id?', proxy(process.env.GURU_HOST || 'https://www.ft.com'));
+
 app.get('/*', (req, res) => {
-	if (process.env.GURU_URL) res.locals.guruEndpoint = process.env.GURU_URL;
+	if (process.env.GURU_HOST) res.locals.guruEndpoint = process.env.GURU_HOST;
 	res.render('index',{ layout: 'wrapper', title: 'Demo' });
 });
 
