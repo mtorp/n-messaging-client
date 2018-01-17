@@ -5,7 +5,7 @@ node_modules/@financial-times/n-gage/index.mk:
 -include node_modules/@financial-times/n-gage/index.mk
 
 link-templates:
-	echo "Creating symlink to mimic bower_component setup /templates -> public/n-messaging-client"
+	@echo "Creating symlink to mimic bower_component setup /templates -> public/n-messaging-client"
 	mkdir -p "$(CURDIR)/public/n-messaging-client"
 	ln -sf "$(CURDIR)/templates" "$(CURDIR)/public/n-messaging-client/"
 
