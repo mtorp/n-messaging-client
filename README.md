@@ -72,7 +72,7 @@ const app = nUi({
 });
 ```
 
-Now you can inject the message "slot" template in the relevant place in you markup (as close to the bottom of the `body` tag as possible):
+Now you can inject the message "slot" template in the relevant place in your markup (as close to the bottom of the `body` tag as possible):
 
 ```html
  <!-- wrapper.html -->

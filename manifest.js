@@ -16,7 +16,7 @@ module.exports = {
 		messageId: 'licenceJoinPromptSsiClient'
 	},
 	paymentFailure: {
-		partial: 'bottom/payment-failure',
+		partial: 'top/payment-failure',
 		messageId: 'paymentFailure'
 	}
 };
