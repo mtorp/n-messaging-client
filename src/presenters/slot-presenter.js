@@ -48,7 +48,7 @@ const SlotPresenter = class SlotPresenter {
 	}
 
 	get hasMessage () {
-		return !!(this.config.variant);
+		return !!(this.config.variant && this.config.partial);
 	}
 
 };
