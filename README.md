@@ -91,20 +91,20 @@ Import `n-messaging-client`'s styles to your main css entry:
 @import 'n-messaging-client/main';
 ```
 
-And finally import and initialise the client side component via your main js entry, making sure to pass in the flags:
+And finally import and initialise the client side component via your main js entry:
 
 ```javascript
 // main.js
 
 import { nMessagingClient } from 'n-messaging-client';
-nMessagingClient.init(window.FT.flags);
+nMessagingClient.init();
 ```
 
 Note: optionally you may only want to init if a message flag is on the page
 
 ```javascript
 if ( window.FT.flags.messageSlotBottom || window.FT.flags.messageSlotTop ) {
-  nMessagingClient.init(window.FT.flags);
+  nMessagingClient.init();
 }
 ```
 

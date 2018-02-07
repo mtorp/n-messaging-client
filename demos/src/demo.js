@@ -13,6 +13,4 @@ oTracking.init({
 	}
 });
 
-nMessagingClient.init({
-	priceFlashSale: true
-});
+nMessagingClient.init();

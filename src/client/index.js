@@ -3,11 +3,8 @@ const topSlot = require('./top-slot');
 const bottomSlot = require('./bottom-slot');
 const components = require('../components');
 
-let _flags;
-
 module.exports = {
-	init: function (flags) {
-		_flags = flags;
+	init: function () {
 		const slots = document.querySelectorAll('[data-n-messaging-slot]');
 		const messages = slots && Array.prototype.slice.call(slots).map(elm => {
 			const dataSet = elm.dataset || {};
@@ -17,7 +14,8 @@ module.exports = {
 				flag: dataSet.nMessagingFlag,
 				id: dataSet.nMessagingId,
 				content: elm.querySelector('[data-n-messaging-component]'),
-				lazy: dataSet.nMessagingLazy === 'true'
+				lazy: dataSet.nMessagingLazy === 'true',
+				guruQueryString: dataSet.nMessagingGuruQueryString
 			};
 		});
 		if (messages.length > 0) {
@@ -35,7 +33,7 @@ module.exports = {
 	},
 	renderHandler (position) {
 		if (position === 'top') return topSlot;
-		if (position === 'bottom') return bottomSlot.bind(this, _flags);
+		if (position === 'bottom') return bottomSlot;
 	},
 	setupHandler (name) {
 		return components.hasOwnProperty(name) && components[name];
