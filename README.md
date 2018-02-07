@@ -108,6 +108,8 @@ if ( window.FT.flags.messageSlotBottom || window.FT.flags.messageSlotTop ) {
 }
 ```
 
+**note:** CSS could be loaded asyncronously so the ```n-ui-hide``` class is used to stop unstyled content flash, ensure your application has ```n-ui-foundations``` to take advantage of this.
+
 # Development
 
 ## Running locally
