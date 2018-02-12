@@ -33,7 +33,8 @@
     "n-alert-banner": "^0.9.0",
     "n-ui-foundations": "^3.0.0",
     "o-banner": "^1.4.0",
-    "o-share": "^6.0.0"
+    "o-share": "^6.0.0",
+		"o-overlay": "^2.1.8",
   },
   "devDependencies": {
     "o-tracking": "^1.3.3"

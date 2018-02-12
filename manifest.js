@@ -27,5 +27,9 @@ module.exports = {
 	adBlockerBanner: {
 		partial: 'bottom/ad-blocker-banner',
 		messageId: 'adBlockerBanner'
+	},
+	adBlockerOverlay: {
+		partial: 'bottom/ad-blocker-overlay',
+		messageId: 'adBlockerOverlay'
 	}
 };
