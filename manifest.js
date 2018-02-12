@@ -24,8 +24,8 @@ module.exports = {
 		messageId: 'marketingPopupPrompt',
 		guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
 	},
-	addBlockerBanner: {
-		partial: 'bottom/add-blocker-banner',
-		messageId: 'addBlockerBanner'
+	adBlockerBanner: {
+		partial: 'bottom/ad-blocker-banner',
+		messageId: 'adBlockerBanner'
 	}
 };
