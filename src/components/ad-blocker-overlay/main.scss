@@ -1,20 +1,10 @@
-@import "n-ui-foundations/main";
-
 @include oColorsSetUseCase(n-counter-ad-blocking-component, text, 'white');
 @include oColorsSetUseCase(n-counter-ad-blocking-link, border, 'white');
-@include oColorsSetUseCase(n-counter-ad-blocking-button, background, 'white');
-@include oColorsSetUseCase(n-counter-ad-blocking-button, text, 'oxford');
-@include oColorsSetUseCase(o-overlay-close, text, 'white');
 
 @include nUiGridOffset(L, 1);
 
-.counter-adblock.counter-adblock-background {
- 	background-color: #0d7680;
-}
-
-.counter-adblock__prevent-scroll {
-	overflow: hidden;
-	height: 100%;
+.counter-adblock.counter-adblock__background {
+	@include oColorsFor(o-banner, background)
 }
 
 .o-overlay-shadow {
@@ -43,10 +33,10 @@
 
 .counter-adblock__text {
 	@include oTypographySans($scale: 2, $line-height: 26px);
-}
 
-.counter-adblock__text--bold {
-	font-weight: 600;
+	&--bold {
+		font-weight: 600;
+	}
 }
 
 .counter-adblock__button {
@@ -56,17 +46,15 @@
 .counter-adblock__list-item {
 	@include oTypographySans($scale: 0);
 	margin-bottom: 8px;
+	@include oColorsFor(n-counter-ad-blocking-link, border);
+	display: inline-block;
+	border-right: 1px solid;
+	margin-right: 6px;
 }
 
 .counter-adblock__list {
 	list-style: none;
 	padding-left: 0;
-}
-.counter-adblock__list-item {
-	@include oColorsFor(n-counter-ad-blocking-link, border);
-	display: inline-block;
-	border-right: 1px solid;
-	margin-right: 6px;
 }
 
 .counter-adblock__list-item:last-of-type {
@@ -75,6 +63,7 @@
 }
 
 .counter-adblock__link {
+	// @include oBannerLink
 	@include oColorsFor(n-counter-ad-blocking-component, text);
 	@include oColorsFor(n-counter-ad-blocking-link, border);
 	margin-right: 8px;
@@ -87,7 +76,7 @@
 	}
 }
 
-.counter-adblock__image {
+.counter-adblock__image--width {
 	max-width: 100%;
 }
 
