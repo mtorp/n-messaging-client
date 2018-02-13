@@ -1,5 +1,3 @@
-$o-overlay-is-silent: false;
-@import "o-overlay/main";
 @import "n-ui-foundations/main";
 
 @include oColorsSetUseCase(n-counter-ad-blocking-component, text, 'white');
@@ -19,32 +17,23 @@ $o-overlay-is-silent: false;
 	height: 100%;
 }
 
-.o-overlay.o-overlay--counter-ad-block {
-	@include oColorsFor(n-counter-ad-blocking-component, text);
+.o-overlay-shadow {
+	background-color: rgba(0,0,0,.2);
+	height: 150%;
 	width: 100%;
-	@include oGridRespondTo($from:'M', $until:'L') {
-		width: 708px;
-	}
-	@include oGridRespondTo($from:'L', $until:'XL') {
-		width: 948px;
-	}
-	@include oGridRespondTo(XL) {
-		width: 1204px;
-	}
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 10;
+	opacity: 1;
+	-webkit-transition: opacity .3s ease-in-out;
+	transition: opacity .3s ease-in-out;
 }
 
 .counter-adblock {
 	-webkit-font-smoothing: antialiased;
 	.o-grid-row {
 		margin-bottom: 32px;
-	}
-	.o-overlay__close {
-		@include _oOverlayCloseIcon(getColor('white'));
-		position: absolute;
-		top: -20px;
-		right: -20px;
-		height: 40px;
-		width: 40px;
 	}
 }
 

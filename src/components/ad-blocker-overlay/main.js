@@ -1,32 +1,18 @@
-const Overlay = require('o-overlay');
-
 module.exports = (banner, done) => {
 
-	const bannerInnerElement = banner.innerElement;
+	const MIN_WIDTH_TO_ACTIVATE = 980;
 
-	const overlayOptions = {
-		html: bannerInnerElement,
-		modal: true,
-		preventclosing: true,
-		customclose: false
-	};
+	const viewportWidth = window.innerWidth;
+	if (viewportWidth < MIN_WIDTH_TO_ACTIVATE) return;
+	// only run if on specific apps
+	const el = document.querySelector('.js-success');
+	const app = el && el.dataset && el.dataset.nextApp;
+	app === 'article' && document.querySelector('.content__video')
+	if (app === 'article' && document.querySelector('.content__video')) return;
 
-
-	const adBlockingOverlay = new Overlay('counter-ad-block', overlayOptions);
-
-	adBlockingOverlay.open();
-
-	//Prevent scrolling of page behind overlay
-	document.body.classList.add('counter-adblock__prevent-scroll');
-	document.documentElement.classList.add('counter-adblock__prevent-scroll');
-
-	const removeScrollBlock = () => {
-		document.removeEventListener('oOverlay.destroy', removeScrollBlock);
-		document.body.classList.remove('counter-adblock__prevent-scroll');
-		document.documentElement.classList.remove('counter-adblock__prevent-scroll');
-	};
-
-	document.addEventListener('oOverlay.destroy', removeScrollBlock);
+	const overlay = document.createElement('div');
+	overlay.className = 'o-overlay-shadow';
+	document.body.appendChild(overlay);
 
 	done();
 };
