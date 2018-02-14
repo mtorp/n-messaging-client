@@ -1,11 +1,9 @@
 $class: 'adblock';
 
 .#{$class}__list-link {
-	background-color: deeppink;
 	padding: 0;
 	margin-bottom: 0px;
-	margin-right: 120px;
-	margin-top: 17px;
+	margin-top: 6px;
 }
 
 .#{$class}__list-item {
@@ -27,6 +25,6 @@ $class: 'adblock';
 	margin-top: 12px;
 }
 
-.adblock-flex {
+.#{$class}-flex-none {
 	flex: none
 }
