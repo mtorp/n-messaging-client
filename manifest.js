@@ -24,12 +24,12 @@ module.exports = {
 		messageId: 'marketingPopupPrompt',
 		guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
 	},
-	adBlockerBanner: {
-		partial: 'bottom/ad-blocker-banner',
-		messageId: 'adBlockerBanner'
+	adBlockerSubBanner: {
+		partial: 'bottom/ad-blocker-sub-banner',
+		messageId: 'adBlockerSubBanner'
 	},
-	adBlockerOverlay: {
-		partial: 'bottom/ad-blocker-overlay',
-		messageId: 'adBlockerOverlay'
+	adBlockerRegBanner: {
+		partial: 'bottom/ad-blocker-reg-banner',
+		messageId: 'adBlockerRegBanner'
 	}
 };
