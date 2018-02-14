@@ -32,7 +32,7 @@
   "dependencies": {
     "n-alert-banner": "^0.9.0",
     "n-ui-foundations": "^3.0.0",
-    "o-banner": "^1.4.0",
+    "o-banner": "^1.5.0",
     "o-share": "^6.0.0"
   },
   "devDependencies": {
