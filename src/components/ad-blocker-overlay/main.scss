@@ -3,7 +3,7 @@ $class: 'adblock';
 .#{$class}__list-link {
 	padding: 0;
 	margin-top: 12px;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 
 	@include oGridRespondTo(M) {
 		margin-top: 6px;
