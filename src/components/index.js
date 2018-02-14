@@ -5,5 +5,5 @@ const anonSubscribe = require('./anon-subscribe-now-teal/main');
 module.exports = {
 	b2bUpsellBanner: inviteColleagues,
 	appPromotingBanner: appBanner,
-	anonSubscribeNow: anonSubscribe,
+	anonSubscribeNow: anonSubscribe
 };
