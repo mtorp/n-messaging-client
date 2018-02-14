@@ -29,6 +29,8 @@ $class: 'adblock';
 	margin-top: 12px;
 }
 
-.#{$class}-flex-none {
-	@media (min-width: 344px) { flex: none; }
+.#{$class}-flex {
+	@media (min-width: 344px) {
+		flex: none;
+	}
 }
