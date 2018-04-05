@@ -6,6 +6,7 @@
 
 @import 'n-alert-banner/main';
 @import 'o-banner/main';
+@import './src/components/nav-messaging-tooltip';
 
 @include oFontsInclude(MetricWeb);
 @include oFontsInclude(MetricWeb, $weight: semibold);
