@@ -6,6 +6,8 @@
 
 @import 'n-alert-banner/main';
 @import 'o-banner/main';
+$o-tooltip-is-silent : false;
+@import "o-tooltip/main";
 
 @include oFontsInclude(MetricWeb);
 @include oFontsInclude(MetricWeb, $weight: semibold);
