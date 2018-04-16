@@ -49,5 +49,10 @@ module.exports = {
 		partial: 'top/nav-contact-preferences',
 		messageId: 'navContactPreferences',
 		tooltip: true
+	},
+	dailyDigest: {
+		partial: 'top/daily-digest',
+		messageId: 'dailyDigest',
+		tooltip: true
 	}
 };

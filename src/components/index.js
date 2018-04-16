@@ -5,6 +5,7 @@ const adBlockerSubBanner = require('./ad-blocker-sub-banner/main');
 const adBlockerRegBanner = require('./ad-blocker-reg-banner/main');
 const navMyFt = require('./nav-myft/main');
 const navContactPreferences = require('./nav-contact-preferences/main');
+const dailyDigest = require('./daily-digest/main');
 
 module.exports = {
 	b2bUpsellBanner: inviteColleagues,
@@ -13,5 +14,6 @@ module.exports = {
 	adBlockerSubBanner,
 	adBlockerRegBanner,
 	navMyFt,
-	navContactPreferences
+	navContactPreferences,
+	dailyDigest
 };
