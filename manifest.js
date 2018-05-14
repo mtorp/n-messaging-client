@@ -44,5 +44,9 @@ module.exports = {
 		partial: 'top/nav-contact-preferences',
 		messageId: 'navContactPreferences',
 		tooltip: true
+	},
+	privacyPolicy: {
+		partial: 'top/privacy-policy',
+		messageId: 'privacyPolicy'
 	}
 };
