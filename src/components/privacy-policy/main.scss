@@ -1,4 +1,5 @@
-[data-n-messaging-name="privacyPolicy"] {
+/* stylelint-disable selector-class-pattern */
+.n-messaging-slot--privacyPolicy {
 	.n-alert-banner {
 		border-bottom: 1px solid getColor('black-20');
 	}
@@ -19,3 +20,4 @@
 		}
 	}
 }
+/* stylelint-enable */
