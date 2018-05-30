@@ -5,20 +5,18 @@
 		border-bottom: 1px solid getColor('black-20');
 	}
 
-	.n-alert-banner__inner {
-		white-space: normal;
+	.n-alert-banner__container {
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 
-	.n-alert-banner__outer {
-		background-color: getColor('wheat');
-	}
-
-	.n-alert-banner__content--long {
+	.n-alert-banner__content {
 		margin-left: 0;
 		padding-left: 0;
 		&:before {
 			display: none;
 		}
 	}
+
 }
 /* stylelint-enable */

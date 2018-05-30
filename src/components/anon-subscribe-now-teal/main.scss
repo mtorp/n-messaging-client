@@ -3,14 +3,14 @@
 
 	@include oGridRespondTo('M') {
 		display: block;
+		background-color: oColorsGetPaletteColor('teal-80');
 	}
 
-	.n-alert-banner__outer {
-		height: 56px;
-	}
-
-	.n-alert-banner__inner {
+	.n-alert-banner__content {
 		display: table;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 20px;
 	}
 
 	.n-alert-banner__actions {
@@ -22,14 +22,19 @@
 		background-size: auto 48px;
 		display: table-cell;
 		vertical-align: middle;
+		padding-bottom: 0;
 	}
 
-	.n-alert-banner__action {
-		padding-right: 0;
-	}
-
-	.n-alert-banner__button {
-		line-height: 14px;
+	.n-alert-banner__actions__primary {
+		@include oMessageButtonBase;
+		@include oButtonsTheme($theme: (background: 'white', accent: 'black', colorizer: 'primary'));
+		margin-right: 0;
+			// This is a hack around the fact that custom buttons do not
+			// support buttons with three colours. TODO: add this to o-buttons
+			// https://github.com/Financial-Times/o-buttons/issues/128
+		&:not([disabled]):hover {
+			background-color: oColorsMix('teal-90', 'black', 80);
+		}
 	}
 
 	.n-alert-banner__actions--clickarea {
