@@ -16,7 +16,6 @@ module.exports = function customSetup (banner, done) {
 	};
 
 	const updateConsent = (elem, event) => {
-		console.log("brrrr");
 		event.preventDefault();
 		const elemAction = elem.getAttribute('href');
 		// call the consent proxy to set default cookie acceptance
