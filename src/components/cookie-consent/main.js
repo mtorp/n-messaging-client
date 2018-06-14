@@ -33,10 +33,15 @@ module.exports = function customSetup (banner, done) {
 
 	const setup = () => {
 		const cookieBanner = bannerElem.closest('.n-ui-hide-enhanced');
-		if (cookieBanner)
-			cookieBanner.classList.remove('n-ui-hide-enhanced');
+		if (cookieBanner) cookieBanner.classList.remove('n-ui-hide-enhanced');
 		const acceptForm = [].slice.call(wrapper.querySelectorAll('[data-action="accept-form"]'));
-		acceptForm.forEach(elem => elem.addEventListener('click', (event) => updateConsent(elem, event), false));
+		acceptForm.forEach(elem =>
+			elem.addEventListener(
+				'click',
+				event => updateConsent(elem, event),
+				false
+			)
+		);
 
 		if (typeof CSS === 'undefined' || !CSS.supports('position', 'sticky')) {
 			bannerElem.classList.add('n-messaging-banner--fixed');
