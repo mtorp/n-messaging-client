@@ -18,18 +18,17 @@ module.exports = function customSetup (banner, done) {
 	};
 
 	const updateConsent = (elem, event) => {
-		const elemAction = elem.getAttribute('action');
-		const elemMethod = elem.getAttribute('method');
 		event.preventDefault();
-		// call the consent proxy to set other cookies to yes, but still hide banner if those fail. User can manage via preferences pages.
+		const elemAction = elem.getAttribute('href');
+		// call the consent proxy to set default cookie acceptance
+		// but still hide banner if those fail
+		// User can manage via preferences pages
 		return fetch(elemAction, {
-			method: elemMethod,
+			method: 'GET',
 			credentials: 'include'
 		})
 		.then(removeBanner)
-		.catch(error => {
-			return { error };
-		});
+		.catch(error => ({ error }));
 	};
 
 	const setup = () => {
@@ -37,7 +36,7 @@ module.exports = function customSetup (banner, done) {
 		if (cookieBanner)
 			cookieBanner.classList.remove('n-ui-hide-enhanced');
 		const acceptForm = [].slice.call(wrapper.querySelectorAll('[data-action="accept-form"]'));
-		acceptForm.forEach(elem => elem.addEventListener('submit', (event) => updateConsent(elem, event), false));
+		acceptForm.forEach(elem => elem.addEventListener('click', (event) => updateConsent(elem, event), false));
 
 		if (typeof CSS === 'undefined' || !CSS.supports('position', 'sticky')) {
 			bannerElem.classList.add('n-messaging-banner--fixed');

@@ -13,11 +13,7 @@
 				<a class="cookie-banner__link" href="https://www.ft.com/preferences/manage-cookies" data-trackable="onsite-message-link-cookie-consent" data-n-messaging-banner-action="">Manage cookies</a>
 			</div>
 			<div>
-				<form method="get" action="https://www.ft.com/__consent/consent-record-cookie"  data-action="accept-form">
-					<input type="hidden" name="redirect" value="{{#if ../realUrl}}{{../realUrl}}{{else}}https://www.ft.com/preferences/manage-cookies{{/if}}"
-					/>
-					<button type="submit" class="n-messaging-banner__button" data-n-messaging-banner-action="" data-trackable="onsite-message-button-cookie-consent">Accept &amp; continue</button>
-				</form>
+				<a href="https://consent.ft.com/__consent/consent-record-cookie?redirect={{#if ../realUrl}}{{../realUrl}}{{else}}https://www.ft.com{{/if}}" class="n-messaging-banner__button" data-n-messaging-banner-action="" data-trackable="onsite-message-button-cookie-consent" data-action="accept-form">Accept &amp; continue</a>
 			</div>
 		</div>
 	</div>
