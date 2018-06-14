@@ -3,7 +3,6 @@ const MANIFEST = require('../../manifest');
 
 const BOTTOM_SLOT_FLAG = 'messageSlotBottom';
 const TOP_SLOT_FLAG = 'messageSlotTop';
-const LAZY_REGEXP = /\/lazy$/;
 const TOP_TYPE = 'top';
 const BOTTOM_TYPE = 'bottom';
 
@@ -26,12 +25,7 @@ const getConfig = (position, root, flags) => {
 			variant,
 			position,
 			root,
-			flag: relevantFlag(position),
-			lazyLoad: LAZY_REGEXP.test(conf.partial),
-			partial: resolvePartialPath(conf.partial),
-			messageId: conf.messageId,
-			guruQueryString: conf.guruQueryString,
-			tooltip: conf.tooltip
+			partial: resolvePartialPath(conf.partial)
 		}
 	);
 };

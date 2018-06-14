@@ -32,7 +32,7 @@
 	}
 }
 
-.js [data-n-messaging-tooltip="true"] {
+.js [data-n-messaging-name="navContactPreferences"] { // Need to change this so that it can be re-used
 	display: block !important;
 	@include oGridRespondTo(M) {
 		display: none !important;

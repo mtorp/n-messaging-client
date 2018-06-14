@@ -5,10 +5,11 @@ const BANNER_CLASS = 'n-messaging-banner';
 const BANNER_ACTION_SELECTOR = '[data-n-messaging-banner-action]';
 const BANNER_BUTTON_SELECTOR = `.${BANNER_CLASS}__button`;
 const BANNER_LINK_SELECTOR = `.${BANNER_CLASS}__link`;
+const BOTTOM_SLOT_FLAG = 'messageSlotBottom';
 
 module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let banner;
-	const trackEventAction = config.id && generateMessageEvent({ messageId: config.id, position: config.position, variant: config.name, flag: config.flag });
+	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.position, variant: config.name, flag: BOTTOM_SLOT_FLAG });
 	const declarativeElement = !config.lazy && config.content;
 
 	if (declarativeElement) {

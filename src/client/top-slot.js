@@ -6,9 +6,11 @@ const ALERT_ACTION_SELECTOR = '[data-n-alert-banner-action]';
 const ALERT_BANNER_BUTTON_SELECTOR = `.${ALERT_BANNER_CLASS}__button`;
 const ALERT_BANNER_LINK_SELECTOR = `.${ALERT_BANNER_CLASS}__link`;
 
+const TOP_SLOT_FLAG = 'messageSlotTop';
+
 module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let alertBanner;
-	const trackEventAction = config.id && generateMessageEvent({ messageId: config.id, position: config.position, variant: config.name, flag: config.flag });
+	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.position, variant: config.name, flag: TOP_SLOT_FLAG });
 	const declarativeElement = !config.lazy && config.content;
 	const options = { messageClass: ALERT_BANNER_CLASS, autoOpen: false, close: nAlertBanner.getDataAttributes(declarativeElement).close};
 

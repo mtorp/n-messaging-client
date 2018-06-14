@@ -47,6 +47,7 @@ module.exports = {
 	navContactPreferences: {
 		partial: 'top/nav-contact-preferences',
 		messageId: 'navContactPreferences',
+		path: 'nav-contact-preferences',
 		tooltip: true
 	},
 	privacyPolicy: {
