@@ -9,12 +9,15 @@ link-templates:
 	mkdir -p "$(CURDIR)/public/n-messaging-client"
 	ln -sf "$(CURDIR)/templates" "$(CURDIR)/public/n-messaging-client/"
 
-demo-build: link-templates
-	webpack --config demos/webpack.config.js
+compile-styles:
+	node-sass demos/src/demo.scss public/main.css --include-path bower_components
+
+demo-build: link-templates compile-styles
+	webpack-cli --config demos/webpack.config.js
 	@$(DONE)
 
-demo-build-watch: link-templates
-	webpack --watch --config demos/webpack.config.js &
+demo-build-watch: link-templates compile-styles
+	webpack-cli --watch --config demos/webpack.config.js &
 	@$(DONE)
 
 demo: demo-build-watch

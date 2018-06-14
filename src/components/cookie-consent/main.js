@@ -1,9 +1,7 @@
 const oViewport = require('o-viewport');
-const cookieStore = require('n-ui-foundations').cookieStore;
-const LOCAL_STORE_KEY = 'FTCookieConsentGDPR';
 
 module.exports = function customSetup (banner, done) {
-	const hasAccepted = cookieStore.get(LOCAL_STORE_KEY) === 'true';
+	const hasAccepted = /FTCookieConsentGDPR=true/.test(document.cookie);
 	const bannerElem = banner.bannerElement;
 	const wrapper = banner.innerElement;
 
@@ -18,6 +16,7 @@ module.exports = function customSetup (banner, done) {
 	};
 
 	const updateConsent = (elem, event) => {
+		console.log("brrrr");
 		event.preventDefault();
 		const elemAction = elem.getAttribute('href');
 		// call the consent proxy to set default cookie acceptance
