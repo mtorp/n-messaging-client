@@ -25,7 +25,8 @@ const getConfig = (position, root, flags) => {
 			variant,
 			position,
 			root,
-			path: resolvePartialPath(conf.path)
+			path: resolvePartialPath(conf.path),
+			tooltip: conf.tooltip
 		}
 	);
 };
