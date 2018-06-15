@@ -3,7 +3,6 @@ const topSlot = require('./top-slot');
 const bottomSlot = require('./bottom-slot');
 const components = require('../components');
 const manifest = require('../../manifest');
-const _get = require('lodash/get');
 
 const LAZY_REGEXP = /\/lazy$/;
 
@@ -14,7 +13,6 @@ module.exports = {
 			const dataSet = elm.dataset || {};
 			const variant = manifest[dataSet.nMessagingName];
 			return {
-				variant,
 				position: dataSet.nMessagingSlot,
 				name: dataSet.nMessagingName,
 				content: elm.querySelector('[data-n-messaging-component]'),
@@ -44,7 +42,9 @@ module.exports = {
 	setupHandler (path) {
 		try {
 			if (path) return require(`../components/${path}/main`);
-		} catch (err) {
+		} catch (error) {
+			// Not all variants have a custom setup files and therefore this prevents an error being throw
+			// console.error(error)
 			return;
 		}
 	},
