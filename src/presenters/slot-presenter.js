@@ -23,7 +23,6 @@ const getConfig = (position, root, flags) => {
 	return Object.assign({}, conf,
 		{
 			variant,
-			position,
 			root,
 			path: resolvePartialPath(conf.path),
 			tooltip: conf.tooltip
