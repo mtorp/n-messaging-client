@@ -7,17 +7,20 @@ const _get = require('lodash/get');
 
 const LAZY_REGEXP = /\/lazy$/;
 
-const dataTypeContract = (type) => [TOP_TYPE, BOTTOM_TYPE].includes(type);
-
 module.exports = {
 	init: function () {
 		const slots = document.querySelectorAll('[data-n-messaging-slot]');
 		const messages = slots && Array.prototype.slice.call(slots).map(elm => {
 			const dataSet = elm.dataset || {};
+			const variant = manifest[dataSet.nMessagingName];
 			return {
+				variant,
 				position: dataSet.nMessagingSlot,
 				name: dataSet.nMessagingName,
-				content: elm.querySelector('[data-n-messaging-component]')
+				content: elm.querySelector('[data-n-messaging-component]'),
+				path: variant.path,
+				lazy: LAZY_REGEXP.test(variant.partial),
+				guruQueryString: variant.guruQueryString
 			};
 		});
 		if (messages.length > 0) {
@@ -26,16 +29,8 @@ module.exports = {
 		}
 	},
 	initialiseMessage (config) {
-		const variant = manifest[config.name];
-		const path = variant.path;
-		config.lazy = LAZY_REGEXP.test(variant.partial);
-
-		if (_get(variant, 'guruQueryString')) {
-			config.guruQueryString = _get(variant, 'guruQueryString');
-		}
-
 		const render = this.renderHandler(config.position);
-		const customSetup = this.setupHandler(path);
+		const customSetup = this.setupHandler(config.path);
 		const formatData = (res) => ({ config, guruResult: res, customSetup });
 		const getData = config.lazy
 			? fetchAsyncConfig(config)
@@ -47,7 +42,11 @@ module.exports = {
 		if (position === 'bottom') return bottomSlot;
 	},
 	setupHandler (path) {
-		if (path) return require(`../components/${path}/main`);
+		try {
+			if (path) return require(`../components/${path}/main`);
+		} catch (err) {
+			return;
+		}
 	},
 	handleError (error) {
 		throw error;
