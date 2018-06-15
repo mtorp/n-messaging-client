@@ -5,7 +5,7 @@ module.exports = {
 	},
 	inviteColleagues: {
 		partial: 'bottom/invite-colleagues',
-		messageId: 'b2c-invite-colleague-banner'
+		messageId: 'inviteColleagues'
 	},
 	appPromotingBanner: {
 		partial: 'bottom/app-promoting-banner',
