@@ -1,6 +1,8 @@
 module.exports = function customSetup (banner, done) {
-	const bannerActions = banner.querySelector('n-alert-banner__actions');
-	const bannerButton = banner.querySelector('n-alert-banner__actions__primary');
+
+	const bannerContent = banner.messageElement.querySelector('.n-alert-banner__content');
+	const bannerActions = banner.messageElement.querySelector('.n-alert-banner__actions');
+	const bannerButton = banner.messageElement.querySelector('.n-alert-banner__actions__primary');
 
 	bannerActions.className += ' n-alert-banner__actions--clickarea';
 	bannerActions.addEventListener('click', clickEvent => {
