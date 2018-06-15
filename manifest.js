@@ -1,6 +1,7 @@
 module.exports = {
 	licenceJoinPromptSsiClient: { // name of flag variant and must match the messageId in ammit-api
-		path: 'bottom/lazy' // path to template
+		path: 'bottom/lazy', // path to template
+		lazy: true
 	},
 	inviteColleagues: {
 		path: 'bottom/invite-colleagues'
@@ -19,6 +20,7 @@ module.exports = {
 	},
 	marketingPopupPrompt: {
 		path: 'bottom/lazy',
+		lazy: true,
 		guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
 	},
 	paymentFailure: {
