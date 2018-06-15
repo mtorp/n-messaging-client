@@ -4,7 +4,7 @@ module.exports = {
 		messageId: 'licenceJoinPromptSsiClient' // id as specified in ammit-api
 	},
 	inviteColleagues: {
-		partial: 'bottom/b2b-upsell',
+		partial: 'bottom/invite-colleagues',
 		messageId: 'b2c-invite-colleague-banner'
 	},
 	appPromotingBanner: {
