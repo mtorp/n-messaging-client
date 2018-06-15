@@ -18,7 +18,7 @@ module.exports = {
 		path: 'bottom/cookie-consent'
 	},
 	marketingPopupPrompt: {
-		path: 'bottom/lazy'
+		path: 'bottom/lazy',
 		guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
 	},
 	paymentFailure: {
