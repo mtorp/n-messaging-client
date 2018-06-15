@@ -25,7 +25,7 @@ const getConfig = (position, root, flags) => {
 			variant,
 			position,
 			root,
-			partial: resolvePartialPath(conf.partial)
+			path: resolvePartialPath(conf.path)
 		}
 	);
 };
@@ -44,7 +44,7 @@ const SlotPresenter = class SlotPresenter {
 	}
 
 	get hasMessage () {
-		return !!(this.config.variant && this.config.partial);
+		return !!(this.config.variant && this.config.path);
 	}
 
 };

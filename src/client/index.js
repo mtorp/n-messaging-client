@@ -19,7 +19,7 @@ module.exports = {
 				name: dataSet.nMessagingName,
 				content: elm.querySelector('[data-n-messaging-component]'),
 				path: variant.path,
-				lazy: LAZY_REGEXP.test(variant.partial),
+				lazy: LAZY_REGEXP.test(variant.path),
 				guruQueryString: variant.guruQueryString
 			};
 		});
