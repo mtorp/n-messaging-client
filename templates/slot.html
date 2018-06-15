@@ -3,7 +3,8 @@
 		<div
 			class="n-messaging-slot"
 			data-n-messaging-slot="{{type}}"
-			data-n-messaging-name="{{@nMessagingPresenter.data.variant}}">
+			data-n-messaging-name="{{@nMessagingPresenter.data.variant}}"
+			data-trackable="onsite-message-{{@nMessagingPresenter.data.variant}}">
 			{{>(lookup @nMessagingPresenter.data 'partial')}}
 		</div>
 	{{/if}}
