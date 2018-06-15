@@ -1,7 +1,6 @@
 const fetchAsyncConfig = require('./next-messaging-guru-client');
 const topSlot = require('./top-slot');
 const bottomSlot = require('./bottom-slot');
-const components = require('../components');
 const manifest = require('../../manifest');
 
 const LAZY_REGEXP = /\/lazy$/;
