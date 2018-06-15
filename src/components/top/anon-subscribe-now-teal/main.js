@@ -1,5 +1,5 @@
 module.exports = function customSetup (banner, done) {
-  
+
 	const bannerActions = banner.messageElement.querySelector('.n-alert-banner__actions');
 	const bannerButton = banner.messageElement.querySelector('.n-alert-banner__actions__primary');
 
