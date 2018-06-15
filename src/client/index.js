@@ -3,8 +3,6 @@ const topSlot = require('./top-slot');
 const bottomSlot = require('./bottom-slot');
 const manifest = require('../../manifest');
 
-const LAZY_REGEXP = /\/lazy$/;
-
 module.exports = {
 	init: function () {
 		const slots = document.querySelectorAll('[data-n-messaging-slot]');
