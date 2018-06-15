@@ -3,12 +3,12 @@ module.exports = {
 		partial: 'bottom/lazy', // path to template
 		messageId: 'licenceJoinPromptSsiClient' // id as specified in ammit-api
 	},
-	b2bUpsellBanner: {
+	inviteColleagues: {
 		partial: 'bottom/b2b-upsell',
 		messageId: 'b2c-invite-colleague-banner'
 	},
 	appPromotingBanner: {
-		partial: 'bottom/desktop-app-banner',
+		partial: 'bottom/app-promoting-banner',
 		messageId: 'appPromotingBanner'
 	},
 	cookieConsentA: {
@@ -40,19 +40,10 @@ module.exports = {
 		partial: 'top/anon-subscribe-now-teal',
 		messageId: 'anonSubscribeNow',
 	},
-	gdprConsent: {
-		partial: 'top/gdpr-consent',
-		messageId: 'gdprConsent'
-	},
-	navContactPreferences: {
-		partial: 'top/nav-contact-preferences',
-		messageId: 'navContactPreferences',
-		path: 'nav-contact-preferences',
+	navAccountSettings: {
+		partial: 'top/nav-account-settings',
+		messageId: 'navAccountSettings',
 		tooltip: true
-	},
-	privacyPolicy: {
-		partial: 'top/privacy-policy',
-		messageId: 'privacyPolicy'
 	},
 	tlsDeprecation: {
 		partial: 'top/tls-deprecation',
@@ -61,9 +52,5 @@ module.exports = {
 	deloitteSubscription: {
 		partial: 'top/deloitte-subscription',
 		messageId: 'deloitteSubscription'
-	},
-	usaSale: {
-		partial: 'top/usa-sale',
-		messageId: 'usaSale'
 	}
 };

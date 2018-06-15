@@ -14,6 +14,7 @@ module.exports = function customSetup (banner, done) {
 
 	const removeBanner = () => {
 		bannerElem.parentNode.removeChild(bannerElem);
+		document.body.focus();
 	};
 
 	const updateConsent = (elem, event) => {
@@ -32,6 +33,9 @@ module.exports = function customSetup (banner, done) {
 	};
 
 	const setup = () => {
+		const cookieBanner = bannerElem.closest('.n-ui-hide-enhanced');
+		if (cookieBanner)
+			cookieBanner.classList.remove('n-ui-hide-enhanced');
 		const acceptForm = [].slice.call(wrapper.querySelectorAll('[data-action="accept-form"]'));
 		acceptForm.forEach(elem => elem.addEventListener('submit', (event) => updateConsent(elem, event), false));
 
@@ -52,7 +56,6 @@ module.exports = function customSetup (banner, done) {
 	};
 
 	if (hasAccepted) {
-		removeBanner();
 		done({ skip: true });
 	} else {
 		setup();

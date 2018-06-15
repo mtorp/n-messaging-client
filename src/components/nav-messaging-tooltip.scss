@@ -30,6 +30,10 @@
 	@include oGridRespondTo(M) {
 		display: block !important;
 	}
+
+	.n-alert-banner__content-main {
+		hyphens: none;
+	}
 }
 
 .js [data-n-messaging-name="navContactPreferences"] { // Need to change this so that it can be re-used
