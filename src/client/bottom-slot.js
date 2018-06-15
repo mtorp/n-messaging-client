@@ -9,7 +9,7 @@ const BOTTOM_SLOT_FLAG = 'messageSlotBottom';
 
 module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let banner;
-	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.position, variant: config.name, flag: BOTTOM_SLOT_FLAG });
+	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: config.name, flag: BOTTOM_SLOT_FLAG });
 	const declarativeElement = !config.lazy && config.content;
 
 	if (declarativeElement) {

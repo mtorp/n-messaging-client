@@ -12,7 +12,7 @@ module.exports = {
 			const dataSet = elm.dataset || {};
 			const variant = manifest[dataSet.nMessagingName];
 			return {
-				position: dataSet.nMessagingSlot,
+				slot: dataSet.nMessagingSlot,
 				name: dataSet.nMessagingName,
 				content: elm.querySelector('[data-n-messaging-component]'),
 				path: variant.path,
@@ -26,7 +26,7 @@ module.exports = {
 		}
 	},
 	initialiseMessage (config) {
-		const render = this.renderHandler(config.position);
+		const render = this.renderHandler(config.slot);
 		const customSetup = this.setupHandler(config.path);
 		const formatData = (res) => ({ config, guruResult: res, customSetup });
 		const getData = config.lazy
@@ -34,9 +34,9 @@ module.exports = {
 			: Promise.resolve(null);
 		return getData.then(formatData).then(render);
 	},
-	renderHandler (position) {
-		if (position === 'top') return topSlot;
-		if (position === 'bottom') return bottomSlot;
+	renderHandler (slot) {
+		if (slot === 'top') return topSlot;
+		if (slot === 'bottom') return bottomSlot;
 	},
 	setupHandler (path) {
 		try {

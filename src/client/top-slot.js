@@ -10,7 +10,7 @@ const TOP_SLOT_FLAG = 'messageSlotTop';
 
 module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let alertBanner;
-	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.position, variant: config.name, flag: TOP_SLOT_FLAG });
+	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: config.name, flag: TOP_SLOT_FLAG });
 	const declarativeElement = !config.lazy && config.content;
 	const options = { messageClass: ALERT_BANNER_CLASS, autoOpen: false, close: nAlertBanner.getDataAttributes(declarativeElement).close};
 
