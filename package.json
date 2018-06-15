@@ -27,8 +27,5 @@
     "proxyquire": "^1.8.0",
     "request": "^2.83.0",
     "sinon": "^4.2.2"
-  },
-  "dependencies": {
-    "lodash.get": "^4.4.2"
   }
 }
