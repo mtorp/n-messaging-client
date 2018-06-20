@@ -1,6 +1,6 @@
 const oTooltip = require('o-tooltip');
 
-module.exports = function customSetup (banner, done) {
+const init = (banner, done) => {
 	const selector = '[data-trackable="Account Settings"]';
 	const contentEl = banner.messageElement.querySelector('.n-alert-banner__content');
 	const targetElement = document.querySelector(selector);
@@ -20,4 +20,11 @@ module.exports = function customSetup (banner, done) {
 		});
 	}
 	done();
+};
+
+module.exports = function customSetup (banner, done) {
+	setTimeout(() => {
+		init(banner, done);
+	}, 4000);
+
 };
