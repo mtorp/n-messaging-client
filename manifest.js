@@ -45,8 +45,12 @@ module.exports = {
 		messageId: 'navAccountSettings',
 		tooltip: true
 	},
-	usaSale: {
+	usaSaleTop: {
 		partial: 'top/usa-sale',
-		messageId: 'usaSale'
+		messageId: 'usaSaleTop'
+	},
+	usaSaleBottom: {
+		partial: 'bottom/lazy',
+		messageId: 'usaSaleBottom'
 	}
 };
