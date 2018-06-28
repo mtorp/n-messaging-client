@@ -35,11 +35,5 @@ module.exports = {
 	navAccountSettings: {
 		path: 'top/nav-account-settings',
 		tooltip: true
-	},
-	tlsDeprecation: {
-		path: 'top/tls-deprecation'
-	},
-	deloitteSubscription: {
-		path: 'top/deloitte-subscription'
 	}
 };
