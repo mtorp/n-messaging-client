@@ -3,7 +3,6 @@ const MANIFEST = require('../../manifest');
 
 const BOTTOM_SLOT_FLAG = 'messageSlotBottom';
 const TOP_SLOT_FLAG = 'messageSlotTop';
-const LAZY_REGEXP = /\/lazy$/;
 const TOP_TYPE = 'top';
 const BOTTOM_TYPE = 'bottom';
 
@@ -24,13 +23,8 @@ const getConfig = (position, root, flags) => {
 	return Object.assign({}, conf,
 		{
 			variant,
-			position,
 			root,
-			flag: relevantFlag(position),
-			lazyLoad: LAZY_REGEXP.test(conf.partial),
-			partial: resolvePartialPath(conf.partial),
-			messageId: conf.messageId,
-			guruQueryString: conf.guruQueryString,
+			path: resolvePartialPath(conf.path),
 			tooltip: conf.tooltip
 		}
 	);
@@ -50,7 +44,7 @@ const SlotPresenter = class SlotPresenter {
 	}
 
 	get hasMessage () {
-		return !!(this.config.variant && this.config.partial);
+		return !!(this.config.variant && this.config.path);
 	}
 
 };
