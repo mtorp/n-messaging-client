@@ -1,7 +1,6 @@
-/* stylelint-disable selector-class-pattern */
-.n-messaging-slot--cookieConsentA,
-.n-messaging-slot--cookieConsentB,
-.n-messaging-slot--cookieConsentC {
+[data-n-messaging-name="cookieConsentA"],
+[data-n-messaging-name="cookieConsentB"],
+[data-n-messaging-name="cookieConsentC"] {
 	position: sticky;
 	bottom: 0;
 	z-index: 100;
@@ -10,8 +9,6 @@
 		bottom: $spacing-unit;
 	}
 }
-
-/* stylelint-enable */
 
 .cookie-banner {
 	/* overrides always fixed */
