@@ -23,6 +23,9 @@ module.exports = {
 		lazy: true,
 		guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
 	},
+	usaSaleBottom: {
+		path: 'bottom/usa-sale',
+	},
 	paymentFailure: {
 		path: 'top/payment-failure'
 	},
@@ -37,11 +40,6 @@ module.exports = {
 		tooltip: true
 	},
 	usaSaleTop: {
-		partial: 'top/usa-sale',
-		messageId: 'usaSaleTop'
-	},
-	usaSaleBottom: {
-		partial: 'bottom/lazy',
-		messageId: 'usaSaleBottom'
+		path: 'top/usa-sale'
 	}
 };
