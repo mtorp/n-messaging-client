@@ -9,12 +9,6 @@ module.exports = {
 	appPromotingBanner: {
 		path: 'bottom/app-promoting-banner'
 	},
-	cookieConsentA: {
-		path: 'bottom/cookie-consent'
-	},
-	cookieConsentB: {
-		path: 'bottom/cookie-consent'
-	},
 	cookieConsentC: {
 		path: 'bottom/cookie-consent'
 	},
