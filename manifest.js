@@ -35,10 +35,6 @@ module.exports = {
 	anonSubscribeNow: {
 		path: 'top/anon-subscribe-now-teal'
 	},
-	navAccountSettings: {
-		path: 'top/nav-account-settings',
-		tooltip: true
-	},
 	usaSaleTop: {
 		path: 'top/usa-sale'
 	}

@@ -1,5 +1,3 @@
-$o-tooltip-is-silent : false;
-
 @import "o-buttons/main";
 @import "o-colors/main";
 @import "o-grid/main";
@@ -9,8 +7,6 @@ $o-tooltip-is-silent : false;
 @import 'n-alert-banner/main';
 @import 'o-message/main';
 @import 'o-banner/main';
-@import "o-tooltip/main";
-@import './src/components/top/nav-messaging-tooltip';
 
 
 @include oFontsInclude(MetricWeb);
