@@ -13,7 +13,7 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	const declarativeElement = !config.lazy && config.content;
 
 	if (declarativeElement) {
-		banner = new oBanner(declarativeElement);
+		banner = new oBanner(declarativeElement, oBanner.getOptionsFromDom(declarativeElement));
 	} else if (guruResult && guruResult.renderData) {
 		banner = new oBanner(null, imperativeOptions(guruResult.renderData, { bannerClass: BANNER_CLASS, autoOpen: false }));
 	} else {
