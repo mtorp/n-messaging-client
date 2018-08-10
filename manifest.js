@@ -23,8 +23,8 @@ module.exports = {
 		lazy: true,
 		guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
 	},
-	usaSaleBottom: {
-		path: 'bottom/usa-sale',
+	secondarySchoolLeavers: {
+		path: 'bottom/school-leavers',
 	},
 	paymentFailure: {
 		path: 'top/payment-failure'
