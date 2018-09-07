@@ -1,22 +1,24 @@
 const swgLoader = require('n-swg').swgLoader;
 
-module.exports = (banner) => {
+module.exports = (banner, done) => {
 		let swg;
-		swgLoader({ customOnwardJourney: true })
-		.then((result) => {
-			swg = result;
-			swg.init();
-		})
-		.then(() => swg.checkEntitlements())
-		.then(entitlements => {
-			if (entitlements) {
-				// get cta properties from n-swg and apply them to the banner button
-				const ctaProperties = swg.getEntitledOnwardJourneyProps(entitlements);
-				const bannerCta = banner.bannerElement.querySelector('.n-messaging-banner__button');
-				bannerCta.innerHTML = ctaProperties.copy;
-				bannerCta.setAttribute('href', ctaProperties.href);
-				bannerCta.addEventListener('click', ctaProperties.callback);
-				banner.open();
-			}
-		});
+		return swgLoader({ customOnwardJourney: true })
+			.then(loaded => {
+				swg = loaded;
+				swg.init();
+				return swg.checkEntitlements();
+			}).then(entitlements => {
+				if (entitlements && !entitlements.granted && entitlements.hasEntitlements) {
+					// get cta properties from n-swg and apply them to the banner button
+					const ctaProperties = swg.getEntitledOnwardJourneyProps(entitlements);
+					const bannerCta = banner.bannerElement.querySelector('.n-messaging-banner__button');
+					bannerCta.innerHTML = ctaProperties.copy;
+					bannerCta.setAttribute('href', ctaProperties.href);
+					bannerCta.addEventListener('click', ctaProperties.callback);
+
+					done();
+				} else {
+					done({skip: true});
+				}
+			});
 };
