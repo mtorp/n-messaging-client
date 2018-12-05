@@ -39,6 +39,19 @@ module.exports = {
 		path: 'top/nav-account-settings',
 		tooltip: true
 	},
+	onboardingMyFt: {
+		path: 'bottom/onboarding-myft'
+	},
+	onboardingPremium: {
+		path: 'bottom/onboarding-premium'
+	},
+	onboardingApp: {
+		path: 'bottom/onboarding-app'
+	},
+	onboardingRegion: {
+		path: 'top/onboarding-region',
+		tooltip: true
+	},
 	bookYourConsult: {
 		path: 'bottom/book-your-consult'
 	}
