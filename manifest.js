@@ -57,5 +57,8 @@ module.exports = {
 	},
 	brexitCampaign: {
 		path: 'bottom/brexit'
-	}
+  },
+  b2bTOBAnon: {
+    path: 'bottom/b2b-trial-onboarding-anon'
+  }
 };
