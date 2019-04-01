@@ -57,5 +57,8 @@ module.exports = {
 	},
 	brexitCampaign: {
 		path: 'bottom/brexit'
-	}
+  },
+  b2bTOBDownloadApp: {
+    path: 'bottom/download-app'
+  }
 };
