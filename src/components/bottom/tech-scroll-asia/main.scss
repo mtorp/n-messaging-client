@@ -1,0 +1,36 @@
+.variant-techScrollAsia {
+	.n-messaging-banner--compact .n-messaging-banner__inner {
+		background-color: #003B71;
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-eu-west-1.amazonaws.com%2Fenvoy-tsa%2Ftsabg.png?source=ip-envoy&width=236&height=450");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position-x: right;
+		color: white;
+	}
+
+	.n-messaging-banner__close {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=o-icons&tint=%23ffffff,%23ffffff&format=svg");
+	}
+
+	.n-messaging-banner__heading:after {
+		margin-top: 8px;
+		margin-bottom: 16px;
+		content: '';
+		display: block;
+		width: 100px;
+		border-bottom: 8px solid;
+		border-color: #295B88;
+	}
+
+	.n-messaging-banner__content p {
+		padding-right: 40px;
+	}
+
+	.n-messaging-banner--compact .n-messaging-banner__button {
+		@include oButtonsTheme($theme: (background: (#3A70AF), accent: 'white', colorizer: 'primary'));
+	}
+
+	.n-messaging-banner--compact .n-messaging-banner__button {
+		color: black;
+	}
+}

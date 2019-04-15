@@ -57,5 +57,8 @@ module.exports = {
 	},
 	brexitCampaign: {
 		path: 'bottom/brexit'
-	}
+	},
+	techScrollAsia: {
+		path: 'bottom/tech-scroll-asia'
+	},
 };
