@@ -1,6 +1,6 @@
 module.exports = {
-	licenceJoinPromptSsiClient: { // name of flag variant and must match the messageId in ammit-api
-		path: 'bottom/lazy', // path to template
+	licenceJoinPromptSsiClient: {
+		path: 'bottom/lazy', // name of flag variant and must match the messageId in ammit-api
 		lazy: true
 	},
 	inviteColleagues: {
@@ -60,8 +60,8 @@ module.exports = {
 	},
 	techScrollAsia: {
 		path: 'bottom/tech-scroll-asia'
-  },
-  b2bTrialAnon: {
+	},
+	b2bTrialAnon: {
 		path: 'bottom/lazy',
 		lazy: true
 	},
