@@ -64,5 +64,8 @@ module.exports = {
 	b2bTrialAnon: {
 		path: 'bottom/lazy',
 		lazy: true
-	}
+	},
+	appPromoMobile: {
+		path: 'bottom/app-promo-mobile'
+	},
 };
