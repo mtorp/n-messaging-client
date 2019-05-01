@@ -111,7 +111,9 @@ if ( window.FT.flags.messageSlotBottom || window.FT.flags.messageSlotTop ) {
 
 - `make install`
 - `make demo` (will build and run demo)
--  visit http://local.ft.com:5005 (make sure you are on `ft.com` so that toggler cookies are used).
+-  visit http://local.ft.com:5005 (make sure you are on `ft.com` so that toggler cookies are used)
+-  before opening a PR, please run `make verify` to check things like linting
+	-  in order to see and fix linting errors, please make sure you have Editor Config and ES Lint plugins installed on your editor of choice
 
 ## Configuring Messages
 
