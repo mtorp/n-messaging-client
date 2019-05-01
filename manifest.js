@@ -61,6 +61,10 @@ module.exports = {
 	techScrollAsia: {
 		path: 'bottom/tech-scroll-asia'
 	},
+	b2bTrialAnon: {
+		path: 'bottom/lazy',
+		lazy: true
+	},
 	appPromoMobile: {
 		path: 'bottom/app-promo-mobile'
 	},
