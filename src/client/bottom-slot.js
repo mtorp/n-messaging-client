@@ -3,7 +3,7 @@ const { generateMessageEvent, listen } = require('./utils');
 
 const BANNER_CLASS = 'n-messaging-banner';
 const BANNER_ACTION_SELECTOR = '[data-n-messaging-banner-action]';
-const BANNER_IMPERATIVE_ACTION_SELECTOR = `.${BANNER_CLASS}__action a`;
+const BANNER_BUTTON_SELECTOR = `.${BANNER_CLASS}__button`;
 const BANNER_LINK_SELECTOR = `.${BANNER_CLASS}__link`;
 const BOTTOM_SLOT_FLAG = 'messageSlotBottom';
 
@@ -25,15 +25,17 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 
 	// attach event handlers
 	let actions = banner.innerElement.querySelectorAll(BANNER_ACTION_SELECTOR);
+	let linkActions = [];
 	if (actions.length === 0) {
 		// if no actions specified in markup then default to adding it to the
 		// button element (this can happen when declared imperatively)
-		actions = banner.innerElement.querySelectorAll(BANNER_IMPERATIVE_ACTION_SELECTOR);
-		if (actions.length === 0) {
-			actions = banner.innerElement.querySelectorAll(BANNER_LINK_SELECTOR);
-		}
+		actions = banner.innerElement.querySelectorAll(BANNER_BUTTON_SELECTOR);
+		linkActions = banner.innerElement.querySelectorAll(BANNER_LINK_SELECTOR);
 	}
-	actions = [].slice.call(actions);
+	actions = [
+		...actions,
+		...linkActions
+	];
 	listen(banner.bannerElement, 'o.bannerClosed', () => trackEventAction('close'));
 	listen(banner.bannerElement, 'o.bannerOpened', () => trackEventAction('view'));
 	if (actions && actions.length > 0) {
