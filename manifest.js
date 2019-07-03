@@ -92,5 +92,13 @@ module.exports = {
 	},
 	contentMessage: {
 		path: 'bottom/content-message'
+	},
+	b2cTrialAcquisitions: {
+		path: 'bottom/lazy',
+		lazy: true
+	},
+	b2cSubAcquisitions: {
+		path: 'bottom/lazy',
+		lazy: true
 	}
 };
