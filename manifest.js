@@ -111,5 +111,9 @@ module.exports = {
 	myFtFeedpage: {
 		path: 'top/my-ft-feedpage',
 		tooltip: true
+	},
+	newsletterPromo: {
+		path: 'bottom/lazy',
+		lazy: true
 	}
 };
