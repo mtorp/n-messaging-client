@@ -111,5 +111,8 @@ module.exports = {
 	myFtFeedpage: {
 		path: 'top/my-ft-feedpage',
 		tooltip: true
-	}
+	},
+	nbeAutoSub: {
+		path: 'top/nbe-auto-sub'
+	},
 };
