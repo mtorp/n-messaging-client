@@ -109,10 +109,14 @@ module.exports = {
 		tooltip: true
 	},
 	myFtFeedpage: {
-		path: 'top/my-ft-feedpage',
-		tooltip: true
+	path: 'top/my-ft-feedpage',
+	tooltip: true
 	},
 	nbeAutoSub: {
 		path: 'top/nbe-auto-sub'
+	},
+	dailyDigest: {
+		path: 'bottom/lazy',
+		lazy: true
 	},
 };
