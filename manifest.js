@@ -115,4 +115,7 @@ module.exports = {
 	nbeAutoSub: {
 		path: 'top/nbe-auto-sub'
 	},
+	dailyDigest: {
+		path: 'bottom/daily-digest'
+	},
 };
