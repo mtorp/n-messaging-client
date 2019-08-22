@@ -16,23 +16,23 @@
 	}
 	.n-messaging-banner__content .newsletter-promo-frequency {
 		background-repeat: no-repeat;
-    background-position: 1px 2px;
-    background-size: 22px;
-    padding-left: 35px;
-    margin-top: 15px;
-    font-weight: bold;
+		background-position: 1px 2px;
+		background-size: 22px;
+		padding-left: 35px;
+		margin-top: 15px;
+		font-weight: bold;
 		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Femail.png?source=ip-envoy");
 	}
-  .n-messaging-banner__button {
-    color: black;
-    border-color: white;
-    text-decoration: none;
-    background-color: white;
-  }
-  .n-messaging-banner__button:not([disabled]):hover {
-    color: white;
-    background-color: #262a33;
-  }
+	.n-messaging-banner__button {
+		color: black;
+		border-color: white;
+		text-decoration: none;
+		background-color: white;
+	}
+	.n-messaging-banner__button:not([disabled]):hover {
+		color: white;
+		background-color: #262a33;
+	}
 }
 // newletter specific styling
 .n-messaging-banner--opening_quote {
@@ -159,10 +159,10 @@
 	}
 }
 .n-messaging-banner--brussels_briefing {
-  .n-messaging-banner__inner {
+	.n-messaging-banner__inner {
 		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Fbrussels_briefing_graphic.png?source=ip-envoy");
 	}
 	.n-messaging-banner__heading:after {
-		border-color: #00994D !important;
+		border-color: #00994d !important;
 	}
 }
