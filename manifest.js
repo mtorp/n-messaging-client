@@ -112,8 +112,14 @@ module.exports = {
 		path: 'top/my-ft-feedpage',
 		tooltip: true
 	},
+	nbeAutoSub: {
+		path: 'top/nbe-auto-sub'
+	},
+	dailyDigest: {
+		path: 'bottom/daily-digest'
+	},
 	newsletterPromo: {
 		path: 'bottom/lazy',
 		lazy: true
-	}
+	},
 };
