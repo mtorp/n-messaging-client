@@ -23,20 +23,16 @@
     font-weight: bold;
 		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Femail.png?source=ip-envoy");
 	}
-	.n-messaging-banner__button {
-		@include oButtonsTheme(
-			$theme: (
-				background: (
-					#3a70af
-				),
-				accent: "white",
-				colorizer: "primary"
-			)
-		);
-	}
-	.n-messaging-banner__button {
-		color: black;
-	}
+  .n-messaging-banner__button {
+    color: black;
+    border-color: white;
+    text-decoration: none;
+    background-color: white;
+  }
+  .n-messaging-banner__button:not([disabled]):hover {
+    color: white;
+    background-color: #262a33;
+  }
 }
 // newletter specific styling
 .n-messaging-banner--opening_quote {
