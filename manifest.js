@@ -118,4 +118,8 @@ module.exports = {
 	dailyDigest: {
 		path: 'bottom/daily-digest'
 	},
+	newsletterPromo: {
+		path: 'bottom/lazy',
+		lazy: true
+	},
 };
