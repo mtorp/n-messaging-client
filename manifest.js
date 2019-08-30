@@ -6,9 +6,6 @@ module.exports = {
 	inviteColleagues: {
 		path: 'bottom/invite-colleagues'
 	},
-	appPromotingBanner: {
-		path: 'bottom/app-promoting-banner'
-	},
 	cookieConsentA: {
 		path: 'bottom/cookie-consent'
 	},
@@ -54,9 +51,6 @@ module.exports = {
 	},
 	bookYourConsult: {
 		path: 'bottom/book-your-consult'
-	},
-	brexitCampaign: {
-		path: 'bottom/brexit'
 	},
 	b2bTrialNewsletter: {
 		path: 'bottom/lazy',

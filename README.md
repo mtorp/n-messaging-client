@@ -24,8 +24,7 @@ Presentation: [FOMO - a guide](https://docs.google.com/presentation/d/1QpEVjZYQ3
 
 ### Monitoring
 
-- [Messaging Grafana Board](http://grafana.ft.com/dashboard/db/next-messaging-guru?orgId=1)
-- [Messaging Beacon Board](https://beacon.ft.com/dashboard/messaging/)
+- [Monitoring for `next-messaging-guru`](https://github.com/Financial-Times/next-messaging-guru#monitoring)
 
 # Usage
 
