@@ -1,6 +1,7 @@
 const oBanner = require('o-banner');
 const { generateMessageEvent, listen } = require('./utils');
 
+const BOTTOM_SLOT_CONTENT_SELECTOR = '[data-n-messaging-slot="bottom"] [data-n-messaging-component]';
 const BANNER_CLASS = 'n-messaging-banner';
 const BANNER_ACTION_SELECTOR = '[data-n-messaging-banner-action]';
 const BANNER_BUTTON_SELECTOR = `.${BANNER_CLASS}__button`;
@@ -72,6 +73,7 @@ function imperativeOptions (opts = {}, defaults = {}) {
 		buttonLabel: opts.buttonLabel,
 		buttonUrl: opts.buttonUrl,
 		linkLabel: opts.linkLabel,
-		linkUrl: opts.linkUrl
+		linkUrl: opts.linkUrl,
+		appendTo: BOTTOM_SLOT_CONTENT_SELECTOR
 	};
 }
