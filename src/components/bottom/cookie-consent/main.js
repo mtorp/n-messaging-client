@@ -24,8 +24,8 @@ module.exports = function customSetup (banner, done) {
 			method: 'GET',
 			credentials: 'include'
 		})
-		.then(removeBanner)
-		.catch(error => ({ error }));
+			.then(removeBanner)
+			.catch(error => ({ error }));
 	};
 
 	const setup = () => {
