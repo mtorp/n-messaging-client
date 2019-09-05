@@ -103,8 +103,8 @@ module.exports = {
 		path: 'top/my-ft-feedpage',
 		tooltip: true
 	},
-	myftDisengagedHeaderTooltip: {
-		path: 'top/myft-disengaged-header-tooltip',
+	myftDisengagedTooltip: {
+		path: 'top/myft-disengaged-tooltip',
 		tooltip: true
 	},
 	nbeAutoSub: {
