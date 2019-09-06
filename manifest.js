@@ -117,4 +117,7 @@ module.exports = {
 		path: 'bottom/lazy',
 		lazy: true
 	},
+	topPromoSlotNewAgendaCampaign : {
+		path: 'top/new-agenda'
+	}
 };
