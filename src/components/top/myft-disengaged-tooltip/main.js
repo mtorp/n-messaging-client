@@ -6,7 +6,7 @@ const articleAddToMyftButton = document.querySelector('.topper__primary-theme .n
 const headerMyFTLogo = document.querySelector('[data-trackable="my-ft"]');
 const externalReferer = !document.referrer || !(new URL(document.referrer).hostname.endsWith('ft.com'));
 const articleTooltipSeenCount = 0; // TODO - implement this
-
+const {FT: {flags = {get: () => {}}} = {}} = window;
 module.exports = async (banner, done) => {
 
 	try {
@@ -87,6 +87,7 @@ function showAboutTooltip (banner) {
 }
 
 function showTooltip (banner, targetElement, options = {}) {
+	if (!flags.get('MyFT_DisengagedTooltipsTest')) return;
 	const tooltip = new Tooltip(targetElement, options);
 	tooltip.tooltipEl.classList.add('n-messaging-client-tooltip');
 	tooltip.tooltipEl.querySelector('.n-alert-banner__content-main').classList.add('n-alert-banner--alert-bleed');
