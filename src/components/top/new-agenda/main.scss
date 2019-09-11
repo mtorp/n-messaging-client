@@ -19,8 +19,12 @@
 	}
 
 	.n-alert-banner__content-main {
-		@include oTypographyDisplay($scale: 4);
+		@include oTypographyDisplay($scale: 3);
 		text-transform: uppercase;
+
+		@include oGridRespondTo('L') {
+			@include oTypographySize($scale: 4);
+		}
 	}
 
 	.n-alert-banner__alternate-font-style {
