@@ -19,16 +19,20 @@
 	}
 
 	.n-alert-banner__content-main {
-		@include oTypographyDisplay($scale: 3);
+		@include oTypographySans($scale: 3);
 		text-transform: uppercase;
 
-		@include oGridRespondTo('L') {
-			@include oTypographySize($scale: 4);
+		em {
+			@include oTypographyDisplay($scale: 3);
+			font-style: normal;
 		}
-	}
 
-	.n-alert-banner__alternate-font-style {
-		font-family: Metricweb;
+		@include oGridRespondTo('L') {
+			&,
+			& em {
+				@include oTypographySize($scale: 4);
+			}
+		}
 	}
 
 	.n-alert-banner__actions__primary {
