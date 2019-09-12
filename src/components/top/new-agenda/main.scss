@@ -51,4 +51,18 @@
 	.n-alert-banner__actions--clickarea {
 		cursor: pointer;
 	}
+
+	&--paywall-freeze {
+		text-align: center;
+
+		.n-alert-banner__content {
+			height: 94px;
+		}
+
+		.n-alert-banner__content-detail {
+			@include oTypographySize($scale: 2);
+			display: block;
+			font-weight: 600;
+		}
+	}
 }
