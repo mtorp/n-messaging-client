@@ -1,12 +1,15 @@
 import Tooltip from 'o-tooltip';
 import myftClient from 'next-myft-client';
 import {broadcast} from 'n-ui-foundations';
+import Cookies from 'js-cookie';
 
 const articleAddToMyftButton = document.querySelector('.topper__primary-theme .n-myft-follow-button');
 const headerMyFTLogo = document.querySelector('[data-trackable="my-ft"]');
 const externalReferer = !document.referrer || !(new URL(document.referrer).hostname.endsWith('ft.com'));
-const articleTooltipSeenCount = 0; // TODO - implement this
+const ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME = 'FT_MyFT_article_tooltip';
 const {FT: {flags = {get: () => {}}} = {}} = window;
+let articleTooltipSeenCount = Cookies.get(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME) || 0;
+
 module.exports = async (banner, done) => {
 
 	try {
@@ -50,12 +53,15 @@ function showHeaderTooltip (banner, followedConcepts) {
 		}
 	});
 
-	showTooltip(banner, headerMyFTLogo, {
-		target: 'myft-disengaged-tooltip',
-		content: content,
-		showOnConstruction: true,
-		position: 'below'
-	});
+	if (flags.get('MyFT_DisengagedTooltipsTest')) {
+		const tooltip = new Tooltip(headerMyFTLogo, {
+			target: 'myft-disengaged-tooltip',
+			content: content,
+			showOnConstruction: true,
+			position: 'below'
+		});
+		tooltip.tooltipEl.addEventListener('oTooltip.close', () => banner.close());
+	}
 
 }
 
@@ -78,20 +84,16 @@ function showAboutTooltip (banner) {
 		}
 	});
 
-	showTooltip(banner, articleAddToMyftButton, {
-		target: 'myft-disengaged-tooltip',
-		content: content,
-		showOnConstruction: true,
-		position: 'below'
-	});
-}
 
-function showTooltip (banner, targetElement, options = {}) {
-	if (!flags.get('MyFT_DisengagedTooltipsTest')) return;
-	const tooltip = new Tooltip(targetElement, options);
-	tooltip.tooltipEl.classList.add('n-messaging-client-tooltip');
-	tooltip.tooltipEl.querySelector('.n-alert-banner__content-main').classList.add('n-alert-banner--alert-bleed');
-	tooltip.tooltipEl.addEventListener('oTooltip.close', () => {
-		banner.close();
-	});
+	if (flags.get('MyFT_DisengagedTooltipsTest')) {
+		const tooltip = new Tooltip(articleAddToMyftButton, {
+			target: 'myft-disengaged-tooltip',
+			content: content,
+			showOnConstruction: true,
+			position: 'below'
+		});
+		articleTooltipSeenCount++;
+		Cookies.set(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME, articleTooltipSeenCount, { expires: 365, path: '/content' });
+		tooltip.tooltipEl.addEventListener('oTooltip.close', () => banner.close());
+	}
 }
