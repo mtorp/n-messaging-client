@@ -117,7 +117,10 @@ module.exports = {
 		path: 'bottom/lazy',
 		lazy: true
 	},
-	topPromoSlotNewAgendaCampaign : {
+	tnaCampaignBanner : {
 		path: 'top/new-agenda'
+	},
+	tnaPaywallFreezeBanner : {
+		path: 'top/new-agenda-paywall-freeze'
 	}
 };
