@@ -18,7 +18,7 @@ module.exports = async (banner, done) => {
 		const followedConcepts = await myftClient.getAll('followed', 'concept');
 
 		if (followedConcepts.length && externalReferer) {
-			showHeaderTooltip(followedConcepts);
+			showHeaderTooltip(banner, followedConcepts);
 		} else if (!followedConcepts.length && articleTooltipSeenCount < 3) {
 			showAboutTooltip(banner);
 		}
@@ -29,7 +29,7 @@ module.exports = async (banner, done) => {
 	}
 };
 
-function showHeaderTooltip (banner, followedConcepts) {
+function showHeaderTooltip (banner, followedConcepts = []) {
 	if (!headerMyFTLogo) return;
 	const concepts = followedConcepts
 		.sort((a, b) => b.lastPublished - a.lastPublished)
