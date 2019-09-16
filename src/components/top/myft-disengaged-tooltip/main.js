@@ -35,10 +35,10 @@ function showHeaderTooltip (banner, followedConcepts = []) {
 		.sort((a, b) => b.lastPublished - a.lastPublished)
 		.map(({name}) => `<span style="white-space: nowrap">${name}</span>`)
 		.slice(0, 3);
-	let content = 'Read the latest';
+	let content = 'Read the latest ';
 
 	if (concepts.length === 3) {
-		content += ` ${concepts.shift()}, `;
+		content += `${concepts.shift()}, `;
 	}
 
 	content += concepts.join(' and ');
