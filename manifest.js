@@ -81,6 +81,9 @@ module.exports = {
 		path: 'bottom/lazy',
 		lazy: true
 	},
+	abbLicence: {
+		path: 'bottom/abb-licence'
+	},
 	appPromoMobile: {
 		path: 'bottom/app-promo-mobile'
 	},
