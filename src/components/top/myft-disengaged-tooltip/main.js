@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 
 const articleAddToMyftButton = document.querySelector('.topper__primary-theme .n-myft-follow-button');
 const headerMyFTLogo = document.querySelector('[data-trackable="my-ft"]');
-const externalReferer = !document.referrer || !(new URL(document.referrer).hostname.endsWith('ft.com'));
+const externalReferer = document.referrer && !(new URL(document.referrer).hostname.endsWith('ft.com'));
 const ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME = 'FT_MyFT_article_tooltip';
 const {FT: {flags = {get: () => {}}} = {}} = window;
 let articleTooltipSeenCount = Cookies.get(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME) || 0;
