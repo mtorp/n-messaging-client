@@ -13,7 +13,9 @@ let articleTooltipSeenCount = Cookies.get(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME
 module.exports = async (banner, done) => {
 
 	try {
-
+		if(!externalReferer && articleTooltipSeenCount >= 3) {
+			return;
+		}
 		await myftClient.init([{relationship: 'followed', type: 'concept'}]);
 		const followedConcepts = await myftClient.getAll('followed', 'concept');
 
