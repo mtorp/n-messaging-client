@@ -1,0 +1,51 @@
+.n-messaging-banner--ft-weekend-promo {
+	.n-messaging-banner__inner {
+		background-color: #262A33;
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-ft-weekend-promo.s3-eu-west-1.amazonaws.com%2Fleaf_motif.png?source=ip-envoy");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position-x: right;
+		color: white;
+		border: 5px solid white
+	}
+
+	.n-messaging-banner__close {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=o-icons&tint=%23ffffff,%23ffffff&format=svg");
+	}
+
+	.n-messaging-banner__heading:after {
+		margin-top: 8px;
+		margin-bottom: 16px;
+		content: '';
+		display: block;
+		width: 100px;
+		border-bottom: 8px solid;
+		border-color: #295B88;
+	}
+
+	.n-messaging-banner__content p {
+		padding-right: 40px;
+	}
+
+	.n-messaging-banner__button {
+		@include oButtonsTheme($theme: (background: (#262A33), accent: 'white', colorizer: 'primary'));
+	}
+
+	.n-messaging-banner__button {
+		color: black;
+	}
+
+	ul.article-link-list li:before {
+		content: '';
+		top: 4px;
+		width: 15px;
+		height: 14px;
+		background: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-ft-weekend-promo.s3-eu-west-1.amazonaws.com%2Fbook-icon.png?source=ip-envoy");
+		background-size: cover;
+	}
+
+	ul.article-link-list li>a {
+		color: #ffffff;
+	}
+
+}
