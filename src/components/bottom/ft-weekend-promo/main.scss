@@ -6,7 +6,7 @@
 		background-repeat: no-repeat;
 		background-position-x: right;
 		color: white;
-		border: 5px solid white
+		border: 5px solid white;
 	}
 
 	.n-messaging-banner__close {
@@ -35,7 +35,7 @@
 		color: black;
 	}
 
-	ul.article-link-list li:before {
+	.article-link-list li:before {
 		content: '';
 		top: 4px;
 		width: 15px;
@@ -44,7 +44,7 @@
 		background-size: cover;
 	}
 
-	ul.article-link-list li>a {
+	.article-link-list li>a {
 		color: #ffffff;
 	}
 
