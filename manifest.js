@@ -99,7 +99,7 @@ module.exports = {
 		lazy: true
 	},
 	ftWeekendPromo: {
-		path: 'bottom/lazy',
+		path: 'bottom/ft-weekend-promo',
 		lazy: true
 	},
 	giftArticles: {
