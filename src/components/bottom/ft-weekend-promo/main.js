@@ -1,26 +1,6 @@
-const cookies = require('js-cookie');
-const _=require('lodash');
+const {updateLocalCounter, messageEventLimitsBreached} = require('../../../client/local-tracking');
 
 const messageId = 'ftWeekendPromo';
-const messageRules = {messageId, maxOccurrences: {click: 1, view: 3}}; //hide the banner after this number of events
-const stateCookieName = 'nMessagingEventCounter';
-
-function updateLocalCounter (messageId, event) {
-	const currentCounts = cookies.get(stateCookieName) ? JSON.parse(cookies.get(stateCookieName)) : {};
-	const currentCount = _.get(currentCounts, `${messageId}.${event}`) || 0;
-	_.set(currentCounts, `${messageId}.${event}`, currentCount + 1);
-	cookies.set(stateCookieName, currentCounts, { domain: 'ft.com' });
-}
-
-function messageEventLimitsBreached (messageRules) {
-	const currentCounts = cookies.get(stateCookieName) ? JSON.parse(cookies.get(stateCookieName)) : {};
-	const messageId = messageRules.messageId;
-
-	return Object.keys(messageRules.maxOccurrences).some( function (eventType) {
-		const eventCount = _.get(currentCounts, `${messageId}.${eventType}`) || 0;
-		return (eventCount >= messageRules.maxOccurrences[eventType]);
-	});
-}
 
 
 module.exports = function customSetup (banner, done) {
@@ -44,7 +24,7 @@ module.exports = function customSetup (banner, done) {
 		link.addEventListener('click', handleClick);
 	} );
 
-	if (messageEventLimitsBreached(messageRules) ){
+	if (messageEventLimitsBreached(messageId) ){
 		removeBanner();
 		done({ skip: true });
 	} else {

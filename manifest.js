@@ -100,7 +100,8 @@ module.exports = {
 	},
 	ftWeekendPromo: {
 		path: 'bottom/ft-weekend-promo',
-		lazy: true
+		lazy: true,
+		eventRules: {maxOccurrences: {click: 1, view: 3}}
 	},
 	giftArticles: {
 		path: 'top/gift-articles',
