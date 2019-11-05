@@ -24,7 +24,8 @@ module.exports = {
 		path: 'bottom/new-agenda'
 	},
 	paymentFailure: {
-		path: 'top/payment-failure'
+		path: 'top/payment-failure',
+		eventRules: {maxOccurrences: {act: 1, view: 3, close:1}}
 	},
 	teamTrial: {
 		path: 'bottom/team-trial'
@@ -65,8 +66,7 @@ module.exports = {
 		lazy: true
 	},
 	b2bTrialContactUs: {
-		path: 'bottom/b2b-trial-contact-us',
-		eventRules: {maxOccurrences: {act: 1, view: 5, close:1}}
+		path: 'bottom/b2b-trial-contact-us'
 	},
 	b2bTrialMember: {
 		path: 'bottom/b2b-trial-member',
