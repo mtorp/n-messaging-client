@@ -26,7 +26,7 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	}
 
 	if (messageEventLimitsBreached(config.name)) {
-		trackEventAction('skip');  // todo do we actually need to do this?
+		trackEventAction('skip'); // todo do we actually need to do this?
 		return;
 	}
 

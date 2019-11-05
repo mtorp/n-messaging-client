@@ -24,8 +24,7 @@ module.exports = {
 		path: 'bottom/new-agenda'
 	},
 	paymentFailure: {
-		path: 'top/payment-failure',
-		eventRules: {maxOccurrences: {act: 1, view: 3, close:1}}
+		path: 'top/payment-failure'
 	},
 	teamTrial: {
 		path: 'bottom/team-trial'

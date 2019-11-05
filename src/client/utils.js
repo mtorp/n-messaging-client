@@ -8,12 +8,12 @@ const dispatchEvent = (event) => {
 	document.body.dispatchEvent(event);
 };
 
-const updateLocalCounter =  (messageId, event) => {
+const updateLocalCounter = (messageId, event) => {
 	const currentCounts = cookies.get(stateCookieName) ? JSON.parse(cookies.get(stateCookieName)) : {};
 	const currentCount = _.get(currentCounts, `${messageId}.${event}`) || 0;
 	_.set(currentCounts, `${messageId}.${event}`, currentCount + 1);
 	cookies.set(stateCookieName, currentCounts, { domain: 'ft.com' });
-}
+};
 
 module.exports = {
 	generateMessageEvent: function ({ messageId, position, flag, variant }={}) {
@@ -42,7 +42,7 @@ module.exports = {
 	messageEventLimitsBreached: function (messageId) {
 		const messageRules = _.get(manifest, `${messageId}.eventRules`);
 		if (!messageRules){
-			return false
+			return false;
 		}
 		const currentCounts = cookies.get(stateCookieName) ? JSON.parse(cookies.get(stateCookieName)) : {};
 
