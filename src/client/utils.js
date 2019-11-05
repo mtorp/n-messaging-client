@@ -1,3 +1,5 @@
+const {updateLocalCounter} = require('./local-tracking');
+
 const dispatchEvent = (event) => {
 	document.body.dispatchEvent(event);
 };
@@ -20,6 +22,7 @@ module.exports = {
 			/* TODO: remove below fallback event once we port to the above */
 			const oldEvent = new CustomEvent('oTracking.event', { detail: Object.assign({}, detail, { category: 'component' }), bubbles: true });
 			dispatchEvent(oldEvent);
+			updateLocalCounter(messageId,action);
 		};
 	},
 	listen: function (el, ev, cb) {

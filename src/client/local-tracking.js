@@ -20,7 +20,6 @@ module.exports = {
 	messageEventLimitsBreached: function (messageId) {
 		const messageRules = getMessageEventRules(messageId);
 		if (!messageRules){
-			alert('no rules found for that message');
 			return false
 		}
 		const currentCounts = cookies.get(stateCookieName) ? JSON.parse(cookies.get(stateCookieName)) : {};

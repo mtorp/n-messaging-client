@@ -65,7 +65,8 @@ module.exports = {
 		lazy: true
 	},
 	b2bTrialContactUs: {
-		path: 'bottom/b2b-trial-contact-us'
+		path: 'bottom/b2b-trial-contact-us',
+		eventRules: {maxOccurrences: {act: 1, view: 5, close:1}}
 	},
 	b2bTrialMember: {
 		path: 'bottom/b2b-trial-member',
@@ -101,7 +102,7 @@ module.exports = {
 	ftWeekendPromo: {
 		path: 'bottom/ft-weekend-promo',
 		lazy: true,
-		eventRules: {maxOccurrences: {click: 1, view: 3}}
+		eventRules: {maxOccurrences: {act: 1, view: 3, close:1}}
 	},
 	giftArticles: {
 		path: 'top/gift-articles',

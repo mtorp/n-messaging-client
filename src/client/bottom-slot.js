@@ -1,5 +1,6 @@
 const oBanner = require('o-banner');
 const { generateMessageEvent, listen } = require('./utils');
+const {messageEventLimitsBreached} = require('./local-tracking');
 
 const BOTTOM_SLOT_CONTENT_SELECTOR = '[data-n-messaging-slot="bottom"] [data-n-messaging-component]';
 const BANNER_CLASS = 'n-messaging-banner';
@@ -21,6 +22,12 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 		if (guruResult && guruResult.skip && trackEventAction) {
 			trackEventAction('skip');
 		}
+		return;
+	}
+
+	if (messageEventLimitsBreached(config.name)) {
+		//alert('breach!!!!');
+		trackEventAction('skip');  // todo do we actually need to do this?
 		return;
 	}
 
