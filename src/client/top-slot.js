@@ -1,5 +1,5 @@
 const nAlertBanner = require('o-message');
-const { generateMessageEvent, listen } = require('./utils');
+const { generateMessageEvent, listen, messageEventLimitsBreached } = require('./utils');
 
 const ALERT_BANNER_CLASS = 'n-alert-banner';
 const ALERT_ACTION_SELECTOR = '[data-n-alert-banner-action]';
@@ -22,6 +22,11 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 		if (guruResult.skip && trackEventAction) {
 			trackEventAction('skip');
 		}
+		return;
+	}
+
+	if (messageEventLimitsBreached(config.name)) {
+		trackEventAction('skip'); // todo do we actually need to do this?
 		return;
 	}
 
