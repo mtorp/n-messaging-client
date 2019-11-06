@@ -1,5 +1,6 @@
 const cookies = require('js-cookie');
-const _=require('lodash');
+const set = require('lodash.set');
+const get = require('lodash.get');
 
 const manifest = require('../../manifest');
 const stateCookieName = 'nMessagingEventCounter';
@@ -10,8 +11,8 @@ const dispatchEvent = (event) => {
 
 const updateLocalCounter = (messageId, event) => {
 	const currentCounts = cookies.get(stateCookieName) ? JSON.parse(cookies.get(stateCookieName)) : {};
-	const currentCount = _.get(currentCounts, `${messageId}.${event}`) || 0;
-	_.set(currentCounts, `${messageId}.${event}`, currentCount + 1);
+	const currentCount = get(currentCounts, `${messageId}.${event}`) || 0;
+	set(currentCounts, `${messageId}.${event}`, currentCount + 1);
 	cookies.set(stateCookieName, currentCounts, { domain: 'ft.com' });
 };
 
@@ -40,14 +41,14 @@ module.exports = {
 		if (el) el.addEventListener(ev, cb);
 	},
 	messageEventLimitsBreached: function (messageId) {
-		const messageRules = _.get(manifest, `${messageId}.eventRules`);
+		const messageRules = get(manifest, `${messageId}.eventRules`);
 		if (!messageRules){
 			return false;
 		}
 		const currentCounts = cookies.get(stateCookieName) ? JSON.parse(cookies.get(stateCookieName)) : {};
 
 		return Object.keys(messageRules.maxOccurrences).some( function (eventType) {
-			const eventCount = _.get(currentCounts, `${messageId}.${eventType}`) || 0;
+			const eventCount = get(currentCounts, `${messageId}.${eventType}`) || 0;
 			return (eventCount >= messageRules.maxOccurrences[eventType]);
 		});
 	}
