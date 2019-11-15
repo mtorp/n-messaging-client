@@ -3,7 +3,7 @@
 [data-n-messaging-name="cookieConsentC"] {
 	position: fixed;
 	bottom: 0;
-	z-index: 100;
+	z-index: 110;
 	@include oGridRespondTo($from: M) {
 		max-width: $spacing-unit*24+$spacing-unit*2;
 		bottom: $spacing-unit;
