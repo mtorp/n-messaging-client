@@ -1,15 +1,13 @@
 .n-messaging-banner--app-promo-mobile {
-
-    .app-promo-mobile__device {
-        left: 90px;
-        top: 20px;
-        position: absolute;
+  .app-promo-mobile__device {
+    left: 90px;
+    top: 20px;
+    position: absolute;
+  } 
+  .n-messaging-banner__action {
+    a {
+      border-bottom: none;
+      outline: 0;
     }
-    
-    .n-messaging-banner__action {
-         a {
-            border-bottom: none;
-            outline: 0;
-        }
-    }
+  }
 }
