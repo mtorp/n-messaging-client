@@ -1,6 +1,6 @@
 .n-messaging-banner--app-promo-mobile {
 	.app-promo-mobile__device {
-		left: 90px;
+		left: 70px;
 		top: 20px;
 		position: absolute;
 	}
@@ -9,5 +9,8 @@
 			border-bottom: 0;
 			outline: 0;
 		}
+	}
+	.n-messaging-banner__content p {
+		padding-left: 190px;
 	}
 }
