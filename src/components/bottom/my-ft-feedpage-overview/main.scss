@@ -1,14 +1,17 @@
 .n-messaging-banner--my-ft-feedpage-overview {
 
 	.n-messaging-banner__inner {
-		background-color: white;
-		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-my-ft-feedpage-overview.s3-eu-west-1.amazonaws.com%2FmyFTFeedpageOverview_graphic.png?source=ip-envoy");
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position-x: right;
-		background-position-y: bottom;
-		background-size: 50%;
 		color: black;
+		background: white;
+
+		@include oGridRespondTo($from: M) {
+			background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-my-ft-feedpage-overview.s3-eu-west-1.amazonaws.com%2FmyFTFeedpageOverview_graphic.png?source=ip-envoy");
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position-x: right;
+			background-position-y: bottom;
+			background-size: 50%;
+		}
 	}
 
 	.n-messaging-banner__heading:after {
@@ -20,23 +23,28 @@
 		border-bottom: 0;
 	}
 
+	/* so the text doesn't overlap when background image is displayed */
 	.n-messaging-banner__content p {
-		width: 50%;
+		@include oGridRespondTo($from: M) {
+			width: 50%;
+		}
 	}
 
 
 	.n-messaging-banner__topicname {
 		color: #E6175C;
-
-	}
-
-	.n-messaging-banner__button {
-		@include oButtonsTheme($theme: (background: ('white'), accent: 'black', colorizer: 'primary'));
 	}
 
 	.n-messaging-banner__button {
 		color: white;
+		background-color: black;
+		&:hover,
+		&:focus {
+			color: black;
+			background-color: white;
+		}
 	}
+
 
 
 
