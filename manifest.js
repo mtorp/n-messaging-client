@@ -127,5 +127,9 @@ module.exports = {
 	},
 	tnaPaywallFreezeBanner : {
 		path: 'top/new-agenda-paywall-freeze'
+	},
+	myFtFeedpageOverview : {
+		path: 'bottom/lazy',
+		lazy: true
 	}
 };
