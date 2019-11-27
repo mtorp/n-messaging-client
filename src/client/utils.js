@@ -12,7 +12,7 @@ const dispatchEvent = (event) => {
 
 const getMessageRules = (messageId) => {
 	return get(manifest, `${messageId}.eventRules`);
-}
+};
 
 const updateLocalCounter = (messageId, event) => {
 	const currentCounts = cookies.get(LOCAL_COUNTER_COOKIE_NAME) ? JSON.parse(cookies.get(LOCAL_COUNTER_COOKIE_NAME)) : {};
