@@ -131,5 +131,11 @@ module.exports = {
 	myFtFeedpageOverview : {
 		path: 'bottom/lazy',
 		lazy: true
+	},
+	fastFt : {
+		path: 'bottom/fast-ft'
+	},
+	marketsData : {
+		path: 'bottom/markets-data'
 	}
 };
