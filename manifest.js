@@ -20,9 +20,6 @@ module.exports = {
 		lazy: true,
 		guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
 	},
-	tnaMarketingPopupPrompt: {
-		path: 'bottom/new-agenda'
-	},
 	paymentFailure: {
 		path: 'top/payment-failure'
 	},
@@ -125,11 +122,8 @@ module.exports = {
 		path: 'bottom/lazy',
 		lazy: true
 	},
-	tnaCampaignBanner : {
+	topPromoSlotNewAgendaCampaign  : {
 		path: 'top/new-agenda'
-	},
-	tnaPaywallFreezeBanner : {
-		path: 'top/new-agenda-paywall-freeze'
 	},
 	myFtFeedpageOverview : {
 		path: 'bottom/lazy',
