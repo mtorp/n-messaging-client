@@ -1,16 +1,18 @@
 .n-messaging-client-messaging-banner--app-promo-mobile {
 	.app-promo-mobile__device {
-		left: 70px;
+		left: 90px;
 		top: 20px;
 		position: absolute;
 	}
-	.o-banner__action {
+
+	.o-banner__content--img {
+		margin-left: 238px;
+	}
+
+	.o-banner__actions {
 		a {
 			border-bottom: 0;
 			outline: 0;
 		}
-	}
-	.o-banner__content p {
-		padding-left: 190px;
 	}
 }
