@@ -29,6 +29,12 @@ module.exports = {
 	teamTrial: {
 		path: 'bottom/team-trial'
 	},
+	ukElection: {
+		path: 'top/uk-election'
+	},
+	printBannerUsa: {
+		path: 'top/print-banner-usa'
+	},
 	anonSubscribeNow: {
 		path: 'top/anon-subscribe-now'
 	},
