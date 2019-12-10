@@ -14,6 +14,15 @@
 		padding: 0 20px;
 	}
 
+.n-alert-banner__additional-details {
+	max-width: 640px;
+	margin: 0 auto;
+	padding-bottom: 24px;
+	@include oTypographySans($scale: -1);
+	line-height: 18px;
+	text-align: center;
+}
+
 	.n-alert-banner__cell {
 		padding: 0 15px;
 	}
@@ -55,6 +64,10 @@
 
 		.n-alert-banner__actions__primary {
 			@include oButtonsTheme('primary-inverse');
+		}
+
+		a {
+			color: oColorsGetPaletteColor('white');
 		}
 	}
 }
