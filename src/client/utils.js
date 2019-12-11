@@ -10,19 +10,20 @@ const dispatchEvent = (event) => {
 
 const getMessageRules = messageId => manifest[messageId] ? manifest[messageId].eventRules : undefined;
 
-const getCurrentCount = (messageId, event) => {
-	const currentCounts = getCurrentCounts();
-	return typeof currentCounts[messageId] === 'object' &&
-		typeof currentCounts[messageId][event] === 'number' ? currentCounts[messageId][event] : 0;
-}
-
-const getCurrentCounts = () => {
+const getMessageEventCounts = () => {
 	return cookies.get(LOCAL_COUNTER_COOKIE_NAME) ? JSON.parse(cookies.get(LOCAL_COUNTER_COOKIE_NAME)) : {};
 }
 
-const updateLocalCounter = (messageId, event) => {
-	const currentCounts = getCurrentCounts();
-	const currentCount = getCurrentCount(messageId, event);
+const getEventCountForMessage = (messageId, event) => {
+	const currentCounts = getMessageEventCounts();
+	return typeof currentCounts[messageId] === 'object' &&
+		typeof currentCounts[messageId][event] === 'number' ?
+		currentCounts[messageId][event] : 0;
+}
+
+const updateMessageEventCount = (messageId, event) => {
+	const currentCounts = getMessageEventCounts();
+	const currentCount = getEventCountForMessage(messageId, event);
 	// Set event counters for the message for the first time if not set already.
 	currentCounts[messageId] = currentCounts[messageId] || {};
 	// Increment the counter.
@@ -54,7 +55,7 @@ module.exports = {
 			const oldEvent = new CustomEvent('oTracking.event', { detail: Object.assign({}, detail, { category: 'component' }), bubbles: true });
 			dispatchEvent(oldEvent);
 			if (getMessageRules(messageId)){
-				updateLocalCounter(messageId,action);
+				updateMessageEventCount(messageId,action);
 			}
 		};
 	},
@@ -68,7 +69,7 @@ module.exports = {
 		}
 
 		return Object.keys(messageRules.maxOccurrences).some( function (eventType) {
-			const eventCount = getCurrentCount(messageId, event);
+			const eventCount = getEventCountForMessage(messageId, event);
 			return (eventCount >= messageRules.maxOccurrences[eventType]);
 		});
 	}
