@@ -1,6 +1,4 @@
 const cookies = require('js-cookie');
-const set = require('lodash.set');
-const get = require('lodash.get');
 
 const manifest = require('../../manifest');
 const LOCAL_COUNTER_COOKIE_NAME = 'nMessagingEventCounter';
@@ -10,14 +8,25 @@ const dispatchEvent = (event) => {
 	document.body.dispatchEvent(event);
 };
 
-const getMessageRules = (messageId) => {
-	return get(manifest, `${messageId}.eventRules`);
-};
+const getMessageRules = messageId => manifest[messageId] ? manifest[messageId].eventRules : undefined;
+
+const getCurrentCount = (messageId, event) => {
+	const currentCounts = getCurrentCounts();
+	return typeof currentCounts[messageId] === 'object' &&
+		typeof currentCounts[messageId][event] === 'number' ? currentCounts[messageId][event] : 0;
+}
+
+const getCurrentCounts = () => {
+	return cookies.get(LOCAL_COUNTER_COOKIE_NAME) ? JSON.parse(cookies.get(LOCAL_COUNTER_COOKIE_NAME)) : {};
+}
 
 const updateLocalCounter = (messageId, event) => {
-	const currentCounts = cookies.get(LOCAL_COUNTER_COOKIE_NAME) ? JSON.parse(cookies.get(LOCAL_COUNTER_COOKIE_NAME)) : {};
-	const currentCount = get(currentCounts, `${messageId}.${event}`) || 0;
-	set(currentCounts, `${messageId}.${event}`, currentCount + 1);
+	const currentCounts = getCurrentCounts();
+	const currentCount = getCurrentCount(messageId, event);
+	// Set event counters for the message for the first time if not set already.
+	currentCounts[messageId] = currentCounts[messageId] || {};
+	// Increment the counter.
+	currentCounts[messageId][event] = currentCount + 1;
 
 	// don't make the cookie too sticky, or we can't re-show the message intentionally at a later date.
 	// But it needs to stick around long enough to do the job of allowing spoor/envoy pipeline to catch up:
@@ -57,10 +66,9 @@ module.exports = {
 		if (!messageRules){
 			return false;
 		}
-		const currentCounts = cookies.get(LOCAL_COUNTER_COOKIE_NAME) ? JSON.parse(cookies.get(LOCAL_COUNTER_COOKIE_NAME)) : {};
 
 		return Object.keys(messageRules.maxOccurrences).some( function (eventType) {
-			const eventCount = get(currentCounts, `${messageId}.${eventType}`) || 0;
+			const eventCount = getCurrentCount(messageId, event);
 			return (eventCount >= messageRules.maxOccurrences[eventType]);
 		});
 	}
