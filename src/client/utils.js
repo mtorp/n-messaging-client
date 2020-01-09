@@ -12,14 +12,14 @@ const getMessageRules = messageId => manifest[messageId] ? manifest[messageId].e
 
 const getMessageEventCounts = () => {
 	return cookies.get(LOCAL_COUNTER_COOKIE_NAME) ? JSON.parse(cookies.get(LOCAL_COUNTER_COOKIE_NAME)) : {};
-}
+};
 
 const getEventCountForMessage = (messageId, event) => {
 	const currentCounts = getMessageEventCounts();
 	return typeof currentCounts[messageId] === 'object' &&
 		typeof currentCounts[messageId][event] === 'number' ?
 		currentCounts[messageId][event] : 0;
-}
+};
 
 const updateMessageEventCount = (messageId, event) => {
 	const currentCounts = getMessageEventCounts();
