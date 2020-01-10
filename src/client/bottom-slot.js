@@ -1,4 +1,6 @@
-const oBanner = require('o-banner').default;
+let oBanner = require('o-banner');
+oBanner = oBanner.default || oBanner;
+
 const { generateMessageEvent, listen, messageEventLimitsBreached } = require('./utils');
 
 const BOTTOM_SLOT_CONTENT_SELECTOR = '[data-n-messaging-slot="bottom"] [data-n-messaging-component]';
