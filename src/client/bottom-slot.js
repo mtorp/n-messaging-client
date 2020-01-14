@@ -88,6 +88,7 @@ function imperativeOptions (opts = {}, defaults = {}) {
 		bannerClass: opts.bannerClass || defaults.bannerClass,
 		theme: opts.bannerTheme,
 		layout: opts.bannerLayout,
+		formAction: opts.formAction,
 		contentLong: opts.contentLong,
 		contentShort: opts.contentShort,
 		buttonLabel: opts.buttonLabel,
