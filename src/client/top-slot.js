@@ -1,4 +1,5 @@
-const nAlertBanner = require('o-message');
+let message = require('o-message');
+message = message.default || message;
 const { generateMessageEvent, listen, messageEventLimitsBreached } = require('./utils');
 
 const ALERT_BANNER_CLASS = 'o-message';
@@ -12,12 +13,12 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let alertBanner;
 	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: config.name, flag: TOP_SLOT_FLAG });
 	const declarativeElement = !config.lazy && config.content;
-	const options = { messageClass: ALERT_BANNER_CLASS, autoOpen: false, close: nAlertBanner.getDataAttributes(declarativeElement).close};
+	const options = { messageClass: ALERT_BANNER_CLASS, autoOpen: false, close: message.getDataAttributes(declarativeElement).close};
 
 	if (declarativeElement) {
-		alertBanner = new nAlertBanner(declarativeElement, options);
+		alertBanner = new message(declarativeElement, options);
 	} else if (guruResult && guruResult.renderData) {
-		alertBanner = new nAlertBanner(null, imperativeOptions(guruResult.renderData, options));
+		alertBanner = new message(null, imperativeOptions(guruResult.renderData, options));
 	} else {
 		if (guruResult.skip && trackEventAction) {
 			trackEventAction('skip');
