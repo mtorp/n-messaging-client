@@ -1,4 +1,5 @@
-const nAlertBanner = require('o-message').default;
+let nAlertBanner = require('o-message');
+nAlertBanner = nAlertBanner.default || nAlertBanner;
 const { generateMessageEvent, listen, messageEventLimitsBreached } = require('./utils');
 
 const ALERT_BANNER_CLASS = 'o-message';
