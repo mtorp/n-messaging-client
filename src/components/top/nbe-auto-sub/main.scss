@@ -4,17 +4,17 @@
 	background-color: oColorsByName('teal-80');
 
 	.o-message__content {
-		padding-bottom: 8px;
+		padding-bottom: oSpacingByName('s2');
 	}
 
 	@include oGridRespondTo('M') {
 		.o-message__content-main {
-				@include oTypographyDisplay($scale: 3);
+			@include oTypographyDisplay($scale: 3);
 		}
 	}
 
 	.o-message__cell {
-		padding: 0 15px;
+		padding: 0 oSpacingByName('s4');
 	}
 
 	.o-message__actions__primary {
