@@ -1,8 +1,9 @@
-const nAlertBanner = require('o-message');
-const { generateMessageEvent, listen } = require('./utils');
+let message = require('o-message');
+message = message.default || message;
+const { generateMessageEvent, listen, messageEventLimitsBreached } = require('./utils');
 
-const ALERT_BANNER_CLASS = 'n-alert-banner';
-const ALERT_ACTION_SELECTOR = '[data-n-alert-banner-action]';
+const ALERT_BANNER_CLASS = 'o-message';
+const ALERT_ACTION_SELECTOR = '[data-o-message-action]';
 const ALERT_BANNER_BUTTON_SELECTOR = `.${ALERT_BANNER_CLASS}__button`;
 const ALERT_BANNER_LINK_SELECTOR = `.${ALERT_BANNER_CLASS}__link`;
 
@@ -12,16 +13,21 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let alertBanner;
 	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: config.name, flag: TOP_SLOT_FLAG });
 	const declarativeElement = !config.lazy && config.content;
-	const options = { messageClass: ALERT_BANNER_CLASS, autoOpen: false, close: nAlertBanner.getDataAttributes(declarativeElement).close};
+	const options = { messageClass: ALERT_BANNER_CLASS, autoOpen: false, close: message.getDataAttributes(declarativeElement).close};
 
 	if (declarativeElement) {
-		alertBanner = new nAlertBanner(declarativeElement, options);
+		alertBanner = new message(declarativeElement, options);
 	} else if (guruResult && guruResult.renderData) {
-		alertBanner = new nAlertBanner(null, imperativeOptions(guruResult.renderData, options));
+		alertBanner = new message(null, imperativeOptions(guruResult.renderData, options));
 	} else {
 		if (guruResult.skip && trackEventAction) {
 			trackEventAction('skip');
 		}
+		return;
+	}
+
+	if (messageEventLimitsBreached(config.name)) {
+		trackEventAction('skip'); // todo do we actually need to do this?
 		return;
 	}
 

@@ -24,8 +24,7 @@ Presentation: [FOMO - a guide](https://docs.google.com/presentation/d/1QpEVjZYQ3
 
 ### Monitoring
 
-- [Messaging Grafana Board](http://grafana.ft.com/dashboard/db/next-messaging-guru?orgId=1)
-- [Messaging Beacon Board](https://beacon.ft.com/dashboard/messaging/)
+- [Monitoring for `next-messaging-guru`](https://github.com/Financial-Times/next-messaging-guru#monitoring)
 
 # Usage
 
@@ -168,7 +167,7 @@ If you need to turn a message off in production quickly, simply remove the varia
 ### The Solution
 
 - Message hierarchy as decided by "The Brain™" (`next-ammit-api`)
-- Consistent design and clear usage guidlines (`o-banner` and `n-alert-banner`)
+- Consistent design and clear usage guidelines (`o-banner` and `o-message`)
 - Simple integration to applications (`n-messaging-client`)
 - No conflicting messages on the page at once ("top" & "bottom" slots)
 - Standardised, user based and persistent interaction event tracking (`n-messaging-client`, VoltDB & `next-ammit-api`)

@@ -1,0 +1,173 @@
+// common styling
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small {
+	margin: 0;
+	.o-banner__inner {
+		background-color: #262a33;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: bottom right;
+		background-size: 150px;
+		color: white;
+	}
+	.o-banner__close {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=o-icons&tint=%23ffffff,%23ffffff&format=svg");
+	}
+	.o-banner__content p {
+		padding-right: 95px;
+	}
+	.o-banner__content .newsletter-promo-frequency {
+		background-repeat: no-repeat;
+		background-position: 1px 2px;
+		background-size: 22px;
+		padding-left: 35px;
+		margin-top: 15px;
+		font-weight: bold;
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Femail.png?source=ip-envoy");
+	}
+	.o-banner__button {
+		color: black;
+		border-color: white;
+		text-decoration: none;
+		background-color: white;
+	}
+	.o-banner__button:not([disabled]):hover {
+		color: white;
+		background-color: #262a33;
+	}
+	.o-banner__heading h1 {
+		font-family: FinancierDisplayWeb, serif;
+	}
+}
+
+// newletter specific styling
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--opening_quote {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Fopening_quote_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #ff7310 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--firstft {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Ffirst_ft_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #792fa4 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--world_news {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Fworld_news_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #0c6875 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--breaking_news {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Fbreaking_news_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #ff8833 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--ft_exclusive {
+	.o-banner__heading:after {
+		border-color: #0097a7 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--lex {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Flex_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #96ccf4 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--ft_free_trade {
+	.o-banner__inner {
+	}
+	.o-banner__heading:after {
+		border-color: #0097a7 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--market_forces {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Fmarket_forces_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #dc024f !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--due_diligence {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Fdue_diligence_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #dbb106 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--moral_money {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Fmoral_money_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #0d7680 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--personal_finance {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Fpersonal_finance_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #ffdd1a !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--long_story_short {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Flong_story_short_graphic.png?source=ip-envoy");
+		background-size: 200px !important;
+	}
+	.o-banner__heading:after {
+		border-color: #96cdff !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--editor_choice {
+	.o-banner__heading:after {
+		border-color: #0097a7 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--techft {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Ftechft_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #ffec1a !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--ft_weekend {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2FFT_weekend_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #11508f !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--tech_scroll_asia {
+	.o-banner__inner {
+		background-color: #003b71 !important;
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Ftech_scroll_asia.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #295b88 !important;
+	}
+}
+.n-messaging-client-messaging-banner--newsletter-promo.o-banner--marketing.o-banner--small.n-messaging-client-messaging-banner--brussels_briefing {
+	.o-banner__inner {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fenvoy-newsletters.s3-eu-west-1.amazonaws.com%2Fbrussels_briefing_graphic.png?source=ip-envoy");
+	}
+	.o-banner__heading:after {
+		border-color: #00994d !important;
+	}
+}

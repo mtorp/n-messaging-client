@@ -3,12 +3,6 @@ module.exports = {
 		path: 'bottom/lazy', // path to template
 		lazy: true
 	},
-	inviteColleagues: {
-		path: 'bottom/invite-colleagues'
-	},
-	appPromotingBanner: {
-		path: 'bottom/app-promoting-banner'
-	},
 	cookieConsentA: {
 		path: 'bottom/cookie-consent'
 	},
@@ -24,7 +18,9 @@ module.exports = {
 	marketingPopupPrompt: {
 		path: 'bottom/lazy',
 		lazy: true,
-		guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
+		// Temporary 25% off offer. Related to priceIncreaseTest2020 work.
+		guruQueryString: 'offerId=2a6a4586-ace0-6465-aebe-aa1ecc543271'
+		// guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
 	},
 	paymentFailure: {
 		path: 'top/payment-failure'
@@ -34,6 +30,12 @@ module.exports = {
 	},
 	anonSubscribeNow: {
 		path: 'top/anon-subscribe-now'
+	},
+	ukElection: {
+		path: 'top/uk-election'
+	},
+	printBannerUsa: {
+		path: 'top/print-banner-usa'
 	},
 	navAccountSettings: {
 		path: 'top/nav-account-settings',
@@ -54,9 +56,6 @@ module.exports = {
 	},
 	bookYourConsult: {
 		path: 'bottom/book-your-consult'
-	},
-	brexitCampaign: {
-		path: 'bottom/brexit'
 	},
 	b2bTrialNewsletter: {
 		path: 'bottom/lazy',
@@ -102,7 +101,9 @@ module.exports = {
 		lazy: true
 	},
 	ftWeekendPromo: {
-		path: 'bottom/ft-weekend-promo'
+		path: 'bottom/lazy',
+		lazy: true,
+		eventRules: {maxOccurrences: {act: 1, view: 3, close:1}}
 	},
 	giftArticles: {
 		path: 'top/gift-articles',
@@ -111,5 +112,29 @@ module.exports = {
 	myFtFeedpage: {
 		path: 'top/my-ft-feedpage',
 		tooltip: true
+	},
+	myftDisengagedTooltip: {
+		path: 'top/myft-disengaged-tooltip',
+		tooltip: true
+	},
+	nbeAutoSub: {
+		path: 'top/nbe-auto-sub'
+	},
+	dailyDigest: {
+		path: 'bottom/daily-digest'
+	},
+	newsletterPromo: {
+		path: 'bottom/lazy',
+		lazy: true
+	},
+	myFtFeedpageOverview : {
+		path: 'bottom/lazy',
+		lazy: true
+	},
+	fastFt : {
+		path: 'bottom/fast-ft'
+	},
+	marketsData : {
+		path: 'bottom/markets-data'
 	}
 };
