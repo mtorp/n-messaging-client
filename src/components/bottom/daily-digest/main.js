@@ -1,15 +1,31 @@
-import signUp from './sign-up';
+import myft from 'next-myft-client';
 
 module.exports = function customSetup (banner, done) {
-	const button = banner.innerElement.querySelector('[data-n-messaging-action]');
 
 	function handleSignUpClick (evt) {
-		evt.preventDefault();
-		// FIXME replace the hardcoded test arguments
-		signUp('World', 'http://www.ft.com/ontology/Topic', '82645c31-4426-4ef5-99c9-9df6e0940c00');
-		return false;
-	};
+		if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
+			evt.preventDefault();
+			const conceptId = document.documentElement.dataset.conceptId;
+			if (conceptId) {
+				function addUserToConcept () {
+					return myft.add('user', null, 'followed', 'concept', conceptId);
+				}
+				function logError (err) {
+					/* eslint no-console:0 */
+					console.log({ info: 'could not add user to cocnept', conceptId, err });
+				}
+				myft.init().then(addUserToConcept).catch(logError);
+			}
+			// FIXME remove this debugging line after test
+			/* eslint no-console:0 */
+			console.log({ info: 'developer: one-click daily digest setup' });
+			return false;
+		}
+	}
 
-	button.addEventListener('click', handleSignUpClick);
+	const link = banner.innerElement.querySelector('[data-n-messaging-action]');
+	link.addEventListener('click', handleSignUpClick);
+
 	done();
+
 };
