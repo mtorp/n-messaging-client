@@ -2,8 +2,9 @@ import myft from 'next-myft-client';
 
 module.exports = function customSetup (banner, done) {
 
-	function handleSignUpClick (evt) {
-		if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
+	if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
+
+		function handleSignUpClick (evt) {
 			evt.preventDefault();
 			const conceptId = document.documentElement.dataset.conceptId;
 			if (conceptId) {
@@ -21,10 +22,10 @@ module.exports = function customSetup (banner, done) {
 			console.log({ info: 'developer: one-click daily digest setup' });
 			return false;
 		}
-	}
 
-	const link = banner.innerElement.querySelector('[data-n-messaging-action]');
-	link.addEventListener('click', handleSignUpClick);
+		const link = banner.innerElement.querySelector('[data-n-messaging-action]');
+		link.addEventListener('click', handleSignUpClick);
+	}
 
 	done();
 
