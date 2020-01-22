@@ -6,17 +6,17 @@ module.exports = function customSetup (banner, done) {
 		function generateSuccessHtmlTags () {
 			const parent1Elements = banner.bannerElement.querySelector('.o-banner__content');
 			const childElement1 = document.createElement('div');
-			childElement1.innerHTML = `&#10004;<strong>&ensp;&ensp;Great! You're all set for the daily Email Digest.</strong> Get even more FT content deliverd straight to your inbox`
+			childElement1.innerHTML = '&#10004;<strong>&ensp;&ensp;Great! You\'re all set for the daily Email Digest.</strong> Get even more FT content deliverd straight to your inbox';
 			childElement1.style.color = '#00572C';
-			childElement1.style.fontSize = '16px'; 
+			childElement1.style.fontSize = '16px';
 			parent1Elements.parentNode.replaceChild(childElement1, parent1Elements);
-			
+
 			const parent2Elements = banner.bannerElement.querySelector('.o-banner__actions');
 			const childElement2 = document.createElement('div');
 			childElement2.classList.add('o-banner__action');
-			childElement2.innerHTML = `<a href="https://www.ft.com/myft/alerts/" class="o-banner__link">Browse all newsletters</a>`
+			childElement2.innerHTML = '<a href="https://www.ft.com/myft/alerts/" class="o-banner__link">Browse all newsletters</a>';
 			parent2Elements.parentNode.replaceChild(childElement2, parent2Elements);
-			
+
 			const grandParentElement = banner.bannerElement;
 			grandParentElement.querySelector('.o-banner__outer').style.background='#CCDFC7';
 		}
@@ -42,7 +42,6 @@ module.exports = function customSetup (banner, done) {
 		}
 
 		const link = banner.innerElement.querySelector('[data-n-messaging-action]');
-		
 		link.addEventListener('click', handleSignUpClick);
 	}
 
