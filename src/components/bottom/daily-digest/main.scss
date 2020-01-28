@@ -1,15 +1,39 @@
-.o-banner__link-browse-news-letter {
-	color: #00572c;
-	font-family: MetricWeb,sans-serif;
-	font-size: 16px;
-	line-height: 20px;
-	white-space: nowrap;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #00572c;
-	padding: 5px;
+.o-banner_banner_success-icon-tick {
+	@include oIconsContent(
+		$icon-name: 'tick',
+		$color: oColorsByName('jade'),
+		$size: 30
+	);
+	position: relative;
+	float: left;
 }
-.o-banner__link-browse-news-letter:hover {
-	outline-width: 0;
-	text-decoration: none;
+
+.o-banner_button_Browse {
+    @include oButtonsContent($opts: (
+		'type': 'secondary'
+	));
+	color: oColorsByName('jade');
+	border-color: oColorsByName('jade');
+}
+
+.o-banner_success-background {
+	background: oColorsMix(jade, paper, 30);
+	color: oColorsByName('jade');
+}
+
+.signup-content {
+	position: relative;
+    max-width: inherit;
+    display: contents;
+}
+
+.success-content {
+	position: relative;
+    max-width: inherit;
+	display: contents;
+	font-size: 18px;;
+}
+
+.--is-visible {
+	display: none;
 }
