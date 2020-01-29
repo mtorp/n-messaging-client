@@ -1,17 +1,19 @@
 import myft from 'next-myft-client';
 
 module.exports = function customSetup (banner, done) {
-	if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
+	// if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
+	if(true) {
 		function generateSuccessHtmlContent () {
 			const outerContainer = banner.bannerElement.querySelector('.o-banner__outer');
 			outerContainer.classList.add('o-banner_success-background');
-			const signupContent = banner.bannerElement.querySelector('.signup-content');
+			const signupContent = banner.bannerElement.querySelector('.o-banner_signup-content');
 			signupContent.classList.add('--is-visible');
-			const successContent = banner.bannerElement.querySelector('.success-content');
+			const successContent = banner.bannerElement.querySelector('.o-banner_success-content');
 			successContent.classList.remove('--is-visible');
 		}
 
 		function handleSignUpClick (evt) {
+			generateSuccessHtmlContent();
 			evt.preventDefault();
 			const conceptId = document.documentElement.dataset.conceptId;
 			if (conceptId) {
@@ -23,7 +25,7 @@ module.exports = function customSetup (banner, done) {
 					console.log({ info: 'could not add user to concept', conceptId, err });
 				}
 				myft.init().then(addUserToConcept).catch(logError);
-				//enerateSuccessHtmlContent(); // This may not be the place where to call the confirmation message
+				generateSuccessHtmlContent(); // This may not be the place where to call the confirmation message
 			}
 			// FIXME remove this debugging line after test
 			/* eslint no-console:0 */

@@ -1,33 +1,31 @@
 <div class="n-messaging-client-messaging-banner">
-		{{#> n-messaging-client/templates/components/o-banner
-			renderOpen=true
-		}}
-		<div class="o-banner__inner" data-o-banner-inner="">
-			<div class="signup-content">
-				<div class="o-banner__content">
-					<p><strong>Sign up to the myFT daily digest</strong></p>
-					<p>Receive the latest news from topics you follow on myFT straight to your inbox</p>
-				</div>
-				<div class="o-banner__actions">
-					<div class="o-banner__action">
-						<a href="https://www.ft.com/myft/alerts/" class="o-banner__button" data-n-messaging-action>Sign up</a>
-					</div>
-				</div>
+	{{#> n-messaging-client/templates/components/o-banner
+		renderOpen=true
+	}}
+	<div class="o-banner__inner" data-o-banner-inner="">
+		<div class="o-banner_signup-content">
+			<div class="o-banner__content">
+				<p><strong>Sign up to the myFT daily digest</strong></p>
+				<p>Receive the latest news from topics you follow on myFT straight to your inbox</p>
 			</div>
-			<div class="success-content --is-visible">
-				<div class="o-banner__content">
-					<span class="o-banner_banner_success-icon-tick"></span>
-					<p>
-						<strong>Great! You're all set for the daily Email Digest.</strong>
-						Get even more FT content deliverd straight to your inbox
-					</p>
-				</div>
-				<div class="o-banner__actions">
-					<div class="o-banner__action">
-						<a href="https://www.ft.com/newsletters" class="o-banner_button_Browse" data-n-messaging-action>Browse all newsletters</a>
-					</div>
+			<div class="o-banner__actions">
+				<div class="o-banner__action">
+					<button class="o-banner_button-signup" data-n-messaging-action> Sign up </button>
 				</div>
 			</div>
 		</div>
-		{{/n-messaging-client/templates/components/o-banner}}
+		<div class="o-banner_success-content --is-visible">
+			<div class="o-banner__content">
+				<span class="o-banner_success-icon-tick"></span>
+				<strong>Great! You're all set for the daily Email Digest.</strong>
+				Get even more FT content deliverd straight to your inbox
+			</div>
+			<div class="o-banner__actions">
+				<div class="o-banner__action">
+					<a href="https://www.ft.com/newsletters" class="o-banner_button-browse" data-n-messaging-action> Browse all newsletters </a>
+				</div>
+			</div>
+		</div>
 	</div>
+	{{/n-messaging-client/templates/components/o-banner}}
+</div>

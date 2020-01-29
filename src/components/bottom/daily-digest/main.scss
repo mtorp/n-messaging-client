@@ -1,17 +1,15 @@
-.o-banner_banner_success-icon-tick {
+.o-banner_success-icon-tick {
 	@include oIconsContent(
 		$icon-name: 'tick',
 		$color: oColorsByName('jade'),
-		$size: 30
+		$size: 27
 	);
 	position: relative;
 	float: left;
 }
 
-.o-banner_button_Browse {
-    @include oButtonsContent($opts: (
-		'type': 'secondary'
-	));
+.o-banner_button-browse {
+	@include oButtonsContent($opts: ('type': 'secondary'));
 	color: oColorsByName('jade');
 	border-color: oColorsByName('jade');
 }
@@ -21,19 +19,22 @@
 	color: oColorsByName('jade');
 }
 
-.signup-content {
+.o-banner_signup-content {
 	position: relative;
-    max-width: inherit;
-    display: contents;
+	max-width: inherit;
+	display: contents;
 }
 
-.success-content {
+.o-banner_success-content {
 	position: relative;
-    max-width: inherit;
+	max-width: inherit;
 	display: contents;
 	font-size: 18px;;
 }
 
 .--is-visible {
 	display: none;
+}
+.o-banner_button-signup {
+	@include oButtonsContent($opts: ('type': 'primary'));
 }
