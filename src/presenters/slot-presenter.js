@@ -36,15 +36,9 @@ const SlotPresenter = class SlotPresenter {
 		this._data = _data || {};
 		this.position = dataTypeContract(_data.type) && _data.type;
 		const root = this._data.root || {};
-		this.config = getConfig(this.position, root, parseFlagsObject(root.flags));
-	}
+		this.data = getConfig(this.position, root, parseFlagsObject(root.flags));
 
-	get data () {
-		return this.config;
-	}
-
-	get hasMessage () {
-		return !!(this.config.variant && this.config.path);
+		this.hasMessage = !!(this.data.variant && this.data.path);
 	}
 
 };

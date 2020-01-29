@@ -18,7 +18,7 @@ demo-build-watch: link-templates
 	@$(DONE)
 
 demo: demo-build-watch
-	@DEMO_MODE=true nodemon --ext html,css --watch public --watch templates demos/app.js
+	@DEMO_MODE=true nodemon --inspect --ext html,css --watch public --watch templates demos/app.js
 
 run:
 	@DEMO_MODE=true node demos/app

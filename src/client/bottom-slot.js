@@ -1,4 +1,6 @@
-const oBanner = require('o-banner');
+let oBanner = require('o-banner');
+oBanner = oBanner.default || oBanner;
+
 const { generateMessageEvent, listen, messageEventLimitsBreached } = require('./utils');
 
 const BOTTOM_SLOT_CONTENT_SELECTOR = '[data-n-messaging-slot="bottom"] [data-n-messaging-component]';
@@ -86,6 +88,9 @@ function imperativeOptions (opts = {}, defaults = {}) {
 		bannerClass: opts.bannerClass || defaults.bannerClass,
 		theme: opts.bannerTheme,
 		layout: opts.bannerLayout,
+		formEncoding: opts.formEncoding,
+		formMethod: opts.formMethod,
+		formAction: opts.formAction,
 		contentLong: opts.contentLong,
 		contentShort: opts.contentShort,
 		buttonLabel: opts.buttonLabel,
