@@ -13,7 +13,8 @@ const BOTTOM_SLOT_FLAG = 'messageSlotBottom';
 
 module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let banner;
-	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: config.name, flag: BOTTOM_SLOT_FLAG });
+	const variant = (guruResult && guruResult.renderData && guruResult.renderData.dynamicTrackingData) || config.name
+	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: variant, flag: BOTTOM_SLOT_FLAG });
 	const declarativeElement = !config.lazy && config.content;
 
 	if (declarativeElement) {
@@ -97,6 +98,7 @@ function imperativeOptions (opts = {}, defaults = {}) {
 		buttonUrl: opts.buttonUrl,
 		linkLabel: opts.linkLabel,
 		linkUrl: opts.linkUrl,
-		appendTo: BOTTOM_SLOT_CONTENT_SELECTOR
+		appendTo: BOTTOM_SLOT_CONTENT_SELECTOR,
+		dynamicTrackingData: opts.dynamicTrackingData
 	};
 }
