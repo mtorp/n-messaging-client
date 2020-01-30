@@ -1,7 +1,7 @@
 .o-banner_success-icon-tick {
 	@include oIconsContent(
 		$icon-name: 'tick',
-		$color: oColorsByName('jade'),
+		$color: oColorsMix('black', 'jade', $percentage: 43),
 		$size: 27
 	);
 	position: relative;
@@ -10,13 +10,21 @@
 
 .o-banner_button-browse {
 	@include oButtonsContent($opts: ('type': 'secondary'));
-	color: oColorsByName('jade');
-	border-color: oColorsByName('jade');
+	color: oColorsMix('black', 'jade', $percentage: 43);
+	border-color: oColorsMix('black', 'jade', $percentage: 43);
+	font-family: MetricWeb,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 16px;
+}
+
+.o-banner__action  .o-banner_button-browse:hover {
+	color: oColorsMix('black', 'jade', $percentage: 43);
+	border-color: oColorsMix('black', 'jade', $percentage: 43);
 }
 
 .o-banner_success-background {
-	background: oColorsMix(jade, paper, 30);
-	color: oColorsByName('jade');
+	background: oColorsMix('jade', $percentage: 20);
+	color: oColorsMix('black', 'jade', $percentage: 43);
 }
 
 .o-banner_signup-content {
@@ -29,7 +37,9 @@
 	position: relative;
 	max-width: inherit;
 	display: contents;
-	font-size: 18px;;
+	font-family: MetricWeb,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 16px;
 }
 
 .--is-visible {
@@ -37,4 +47,12 @@
 }
 .o-banner_button-signup {
 	@include oButtonsContent($opts: ('type': 'primary'));
+}
+
+.o-banner__close-color {
+	@include oIconsContent(
+		$icon-name: 'cross',
+		$color: oColorsMix('black', 'jade', $percentage: 43),
+		$size: 27
+	);
 }
