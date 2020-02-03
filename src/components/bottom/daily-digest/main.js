@@ -1,4 +1,5 @@
-import myft from 'next-myft-client';
+import myft from 'next-myft-client'; 
+import Cookies from 'js-cookie';
 
 module.exports = function customSetup (banner, done) {
 	if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
@@ -15,20 +16,34 @@ module.exports = function customSetup (banner, done) {
 
 		function handleSignUpClick (evt) {
 			evt.preventDefault();
-			const conceptId = document.documentElement.dataset.conceptId;
-			if (conceptId) {
-				function addUserToConcept () {
-					return myft.add('user', null, 'followed', 'concept', conceptId);
-				}
-				function logError (err) {
-					/* eslint no-console:0 */
-					console.log({ info: 'could not add user to concept', conceptId, err });
-				}
-				myft.init().then(addUserToConcept).then(loadSuccessContent).catch(logError);
+
+			function getCSRFToken () {
+				const desiredTokenLength = 36;
+				const token = Cookies.get('FTSession_s') || Cookies.get('FTSession');
+				const csrfToken = token ? token.slice(-desiredTokenLength) : '';
+				return csrfToken;
 			}
-			// FIXME remove this debugging line after test
-			/* eslint no-console:0 */
-			console.log({ info: 'developer: one-click daily digest setup' });
+
+			function addUserToDigest () {
+				try {
+					return myft.add('user', null, 'preferred', 'preference', 'email-digest', {
+						token: getCSRFToken,
+						_rel:{
+							type: 'daily',
+							sendTime:'every morning'
+						}
+					});
+				} catch(e) {
+					return e;
+				}
+			}
+
+			function logError (err) {
+				/* eslint no-console:0 */
+				console.log({ info: 'could not add user to the daily digest', err });
+			}
+
+			myft.init().then(addUserToDigest).then(loadSuccessContent).catch(logError);
 			return false;
 		}
 
