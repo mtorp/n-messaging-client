@@ -11,7 +11,8 @@ const TOP_SLOT_FLAG = 'messageSlotTop';
 
 module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let alertBanner;
-	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: config.name, flag: TOP_SLOT_FLAG });
+	const variant = (guruResult && guruResult.renderData && guruResult.renderData.dynamicTrackingData) || config.name;
+	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: variant, flag: TOP_SLOT_FLAG });
 	const declarativeElement = !config.lazy && config.content;
 	const options = { messageClass: ALERT_BANNER_CLASS, autoOpen: false, close: message.getDataAttributes(declarativeElement).close};
 
@@ -89,6 +90,7 @@ function imperativeOptions (opts, defaults) {
 				url: opts.linkUrl
 			}
 		},
-		close: opts.closeButton
+		close: opts.closeButton,
+		dynamicTrackingData: opts.dynamicTrackingData
 	};
 }
