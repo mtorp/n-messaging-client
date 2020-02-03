@@ -1,4 +1,4 @@
-import myft from 'next-myft-client'; 
+import myft from 'next-myft-client';
 import Cookies from 'js-cookie';
 
 module.exports = function customSetup (banner, done) {
