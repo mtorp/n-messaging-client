@@ -1,10 +1,9 @@
-import myft from 'next-myft-client';
-import Cookies from 'js-cookie';
+import myft from './node_modules/next-myft-client';
+import Cookies from './node_modules/js-cookie';
 
 module.exports = function customSetup (banner, done) {
-	// if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
-if (true) {
-	function loadSuccessContent () {
+	if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
+		function loadSuccessContent () {
 			const outerContainer = banner.bannerElement.querySelector('.o-banner__outer');
 			outerContainer.classList.add('o-banner_success-background');
 			const closeButton = banner.bannerElement.querySelector('.o-banner__close');
@@ -27,13 +26,13 @@ if (true) {
 
 			function addUserToDigest () {
 				try {
-					// return myft.add('user', null, 'preferred', 'preference', 'email-digest', {
-					// 	token: getCSRFToken,
-					// 	_rel:{
-					// 		type: 'daily',
-					// 		sendTime:'every morning'
-					// 	}
-					// });
+					return myft.add('user', null, 'preferred', 'preference', 'email-digest', {
+						token: getCSRFToken,
+						_rel:{
+							type: 'daily',
+							sendTime:'every morning'
+						}
+					});
 					return true;
 				} catch(e) {
 					return e;
