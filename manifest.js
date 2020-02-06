@@ -136,5 +136,8 @@ module.exports = {
 	},
 	marketsData : {
 		path: 'bottom/markets-data'
+	},
+	oneClickDailyDigest: {
+		path: 'bottom/oneclick-daily-digest'
 	}
 };
