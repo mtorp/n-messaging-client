@@ -1,5 +1,5 @@
-import myft from './node_modules/next-myft-client';
-import Cookies from './node_modules/js-cookie';
+import myft from 'next-myft-client';
+import Cookies from 'js-cookie';
 
 module.exports = function customSetup (banner, done) {
 	if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
@@ -33,7 +33,6 @@ module.exports = function customSetup (banner, done) {
 							sendTime:'every morning'
 						}
 					});
-					return true;
 				} catch(e) {
 					return e;
 				}
