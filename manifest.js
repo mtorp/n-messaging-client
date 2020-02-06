@@ -3,6 +3,9 @@ module.exports = {
 		path: 'bottom/lazy', // path to template
 		lazy: true
 	},
+	ssiSurvey: {
+		path: 'bottom/secondary-school-survey'
+	},
 	cookieConsentA: {
 		path: 'bottom/cookie-consent'
 	},
