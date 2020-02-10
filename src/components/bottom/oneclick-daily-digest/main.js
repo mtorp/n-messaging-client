@@ -9,9 +9,9 @@ module.exports = function customSetup (banner, done) {
 			const closeButton = banner.bannerElement.querySelector('.o-banner__close');
 			closeButton.classList.add('o-banner__close-color');
 			const signupContent = banner.bannerElement.querySelector('.o-banner_signup-content');
-			signupContent.classList.add('--is-visible');
+			signupContent.classList.add('is-visible');
 			const successContent = banner.bannerElement.querySelector('.o-banner_success-content');
-			successContent.classList.remove('--is-visible');
+			successContent.classList.remove('is-visible');
 		}
 
 		function handleSignUpClick (evt) {
@@ -25,17 +25,13 @@ module.exports = function customSetup (banner, done) {
 			}
 
 			function addUserToDigest () {
-				try {
-					return myft.add('user', null, 'preferred', 'preference', 'email-digest', {
-						token: getCSRFToken,
-						_rel:{
-							type: 'daily',
-							sendTime:'every morning'
-						}
-					});
-				} catch(e) {
-					return e;
-				}
+				return myft.add('user', null, 'preferred', 'preference', 'email-digest', {
+					token: getCSRFToken,
+					_rel:{
+						type: 'daily',
+						sendTime:'every morning'
+					}
+				});
 			}
 
 			function logError (err) {
