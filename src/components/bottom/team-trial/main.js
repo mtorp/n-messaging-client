@@ -1,4 +1,4 @@
-const Overlay = require('o-overlay');
+const Overlay = require('o-overlay').default;
 const componentName = 'n-overlay';
 const loaderClass = 'o-overlay--n-overlay-loader';
 const iframeClass = 'o-overlay--n-overlay-iframe';
