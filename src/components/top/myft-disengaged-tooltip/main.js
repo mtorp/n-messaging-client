@@ -10,7 +10,7 @@ const ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME = 'FT_MyFT_article_tooltip';
 const {FT: {flags = {get: () => {}}} = {}} = window;
 let articleTooltipSeenCount = Cookies.get(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME) || 0;
 
-module.exports = async (banner, done) => {
+export default async (banner, done) => {
 
 	try {
 		if(!externalReferer && articleTooltipSeenCount >= 3) {
