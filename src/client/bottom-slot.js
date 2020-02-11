@@ -68,6 +68,7 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	}
 
 	// show banner
+        if (customSetup.default) customSetup = customSetup.default // ESM modules
 	if (customSetup) {
 		customSetup(banner, ({ skip=false }={}) => {
 			if (skip) {
