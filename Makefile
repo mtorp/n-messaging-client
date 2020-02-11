@@ -21,6 +21,9 @@ demo-build-watch: link-templates
 demo: demo-build-watch
 	@DEMO_MODE=true nodemon --inspect --ext html,css --watch public --watch templates demos/start.js
 
+demo-certs:
+	cd demos && $(SHELL) make-certs.sh
+	@$(DONE)
 run:
 	@DEMO_MODE=true node demos/start
 
