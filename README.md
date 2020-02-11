@@ -99,7 +99,7 @@ if ( window.FT.flags.messageSlotBottom || window.FT.flags.messageSlotTop ) {
 
 - `make install`
 - `make demo-certs` (to install self-signed SSL cert for HTTPS support, otherwise most service calls such as myFT will not work due to secure cookies)
-- `make watch` (will build, run and watch the demo)
+- `make demo-watch` (will build, run and watch the demo)
 -  visit https://local.ft.com:5005 (make sure you are on `ft.com` so that toggler cookies are used)
 -  before opening a PR, please run `make verify` to check things like linting
 	-  in order to see and fix linting errors, please make sure you have Editor Config and ES Lint plugins installed on your editor of choice
