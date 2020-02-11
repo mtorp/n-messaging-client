@@ -11,6 +11,7 @@ link-templates:
 
 demo-build: link-templates
 	webpack --config demos/webpack.config.js
+	node-sass --include-path=bower_components demos/src/demo.scss > demos/public/main.css
 	@$(DONE)
 
 demo-build-watch: link-templates
@@ -21,7 +22,7 @@ demo: demo-build-watch
 	@DEMO_MODE=true nodemon --inspect --ext html,css --watch public --watch templates demos/app.js
 
 run:
-	@DEMO_MODE=true node demos/app
+	@DEMO_MODE=true node demos/start
 
 demo-with-guru: demo-build
 	@GURU_HOST=http://local.ft.com:3002 DEMO_MODE=true node demos/app

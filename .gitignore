@@ -8,7 +8,7 @@ package-lock.json
 
 /node*
 /npm-debug.log*
-/public*
+public/
 /pa11y_screenCapture/*
 
 /.haikro-cache/
