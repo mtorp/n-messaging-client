@@ -8,6 +8,6 @@ module.exports = {
     path: __dirname + '/public/'
   },
   entry: {
-    'main': './demos/src/demo'
+    'demo': './demos/src/demo'
   }
 };
