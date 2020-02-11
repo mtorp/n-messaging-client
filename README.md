@@ -28,11 +28,6 @@ Presentation: [FOMO - a guide](https://docs.google.com/presentation/d/1QpEVjZYQ3
 
 # Usage
 
-The easiest way to enable client side messaging for an application is via the `n-ui` config (TBC).
-Alternatively you can import and initialise the component manually on an application level.
-
-## Application specific
-
 Install client side dependencies (css, js templates) via bower:
 
 ```bower install --save n-messaging-client```
@@ -41,18 +36,12 @@ Install server side dependencies (handlebars presenter/helper) via npm:
 
 ```npm install --save @financial-times/n-messaging-client```
 
-Add the handlebars helper to app config, you can do this via `n-ui` like so:
+Add the Handlebars helper to Express config:
 
 ```javascript
-// app.js
-
-const nUi = require('@financial-times/n-ui');
-const app = nUi({
-  systemCode: 'my-example-app',
   helpers: {
     nMessagingPresenter: require('@financial-times/n-messaging-client').presenter
   }
-});
 ```
 
 Now you can inject the message "slot" template in the relevant place in your markup (as close to the bottom of the `body` tag as possible):
@@ -109,8 +98,9 @@ if ( window.FT.flags.messageSlotBottom || window.FT.flags.messageSlotTop ) {
 ## Running locally
 
 - `make install`
-- `make demo` (will build and run demo)
--  visit http://local.ft.com:5005 (make sure you are on `ft.com` so that toggler cookies are used)
+- `make demo-certs` (to install self-signed SSL cert for HTTPS support, otherwise most service calls such as myFT will not work due to secure cookies)
+- `make watch` (will build, run and watch the demo)
+-  visit https://local.ft.com:5005 (make sure you are on `ft.com` so that toggler cookies are used)
 -  before opening a PR, please run `make verify` to check things like linting
 	-  in order to see and fix linting errors, please make sure you have Editor Config and ES Lint plugins installed on your editor of choice
 
@@ -131,7 +121,7 @@ Messaging slot ammit "flags" use "Brain™" logic to decide which variant to pic
 - Add the relevant templates, css and js to this component (`n-messaging-client`).
 - If your new message variant is `client` (aka lazy / async) then you will need to set up a new matcher on [`next-messaging-guru`](https://github.com/Financial-Times/next-messaging-guru).
 - Build and test your new variant with `make demo`
-- Ship your changes by versioning this component and updating the relevant apps (`next-article` etc.)(`n-ui` dependants (tbc)) to pull it in
+- Ship your changes by versioning this component and updating the relevant apps (`next-article` etc.) to pull it in
 
 ### Under the hood :wrench:
 
