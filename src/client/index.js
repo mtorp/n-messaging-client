@@ -42,12 +42,12 @@ module.exports = {
 			if (path) return require(`../components/${path}/main`);
 		} catch (error) {
 			// Not all variants have a custom setup files and therefore this prevents an error being throw
-			// console.error(error);
+			console.warn(error);
 			return;
 		}
 	},
 	handleError (error) {
 		throw error;
-		// console.error(error);
+		console.error(error);
 	}
 };
