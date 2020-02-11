@@ -1,6 +1,7 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
-import {PageKitHandlebars, helpers} from '@financial-times/dotcom-server-handlebars'
+import {PageKitHandlebars} from '@financial-times/dotcom-server-handlebars/dist/node/PageKitHandlebars'
+import ifSome from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifSome'
 
 import nMessagingPresenter from '../src/handlebars-helpers/nMessagingPresenter'
 import proxy from './proxy-controller'
@@ -10,10 +11,13 @@ app.use(cookieParser())
 app.use('/public', express.static(__dirname + '/public'))
 app.set('views', __dirname + '/templates')
 app.set('view engine', 'html')
+
 const partialPaths = {}
 partialPaths[__dirname + '/templates/partials'] = '**/*.html'
 partialPaths[__dirname + '/../..'] = 'n-messaging-client/templates/**/*.html'
-helpers['nMessagingPresenter'] = nMessagingPresenter
+
+const helpers = { nMessagingPresenter, ifSome }
+
 const renderer = new PageKitHandlebars({ helpers, partialPaths })
 app.engine('html', renderer.engine)
 
