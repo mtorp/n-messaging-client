@@ -22,6 +22,7 @@ const renderer = new PageKitHandlebars({ helpers, partialPaths })
 app.engine('html', renderer.engine)
 
 app.all('/__message/:id?', proxy(process.env.GURU_HOST || 'https://www.ft.com'));
+app.all('/__myft/*', proxy('https://www.ft.com'));
 app.post('/email-app-links', (req, res) => {res.sendStatus(200);});
 
 function getFlagsFromCookie(cookie) {
