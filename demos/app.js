@@ -17,11 +17,6 @@ helpers['nMessagingPresenter'] = nMessagingPresenter
 const renderer = new PageKitHandlebars({ helpers, partialPaths })
 app.engine('html', renderer.engine)
 
-app.locals.origami = {
-	css: 'o-header@7.2.8',
-	js: 'o-header@7.2.8'
-};
-
 app.all('/__message/:id?', proxy(process.env.GURU_HOST || 'https://www.ft.com'));
 app.post('/email-app-links', (req, res) => {res.sendStatus(200);});
 
