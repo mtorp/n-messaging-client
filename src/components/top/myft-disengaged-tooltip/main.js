@@ -1,5 +1,5 @@
 import Tooltip from 'o-tooltip';
-import myftClient from 'next-myft-client';
+import myftClient from 'next-myft-client/myft-bower';
 import {broadcast} from 'n-ui-foundations';
 import Cookies from 'js-cookie';
 
