@@ -1,6 +1,7 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import {PageKitHandlebars} from '@financial-times/dotcom-server-handlebars/dist/node/PageKitHandlebars'
+import ifEquals from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifSome'
 import ifSome from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifSome'
 
 import nMessagingPresenter from '../src/handlebars-helpers/nMessagingPresenter'
@@ -16,7 +17,7 @@ const partialPaths = {}
 partialPaths[__dirname + '/templates/partials'] = '**/*.html'
 partialPaths[__dirname + '/../..'] = 'n-messaging-client/templates/**/*.html'
 
-const helpers = { nMessagingPresenter, ifSome }
+const helpers = { nMessagingPresenter, ifEquals, ifSome }
 
 const renderer = new PageKitHandlebars({ helpers, partialPaths })
 app.engine('html', renderer.engine)
