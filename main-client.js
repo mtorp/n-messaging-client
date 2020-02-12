@@ -1,3 +1,3 @@
 module.exports = {
-	nMessagingClient: require('./src/client/index')
+	nMessagingClient: require('./client/index')
 };

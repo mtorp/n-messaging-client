@@ -4,7 +4,7 @@ import {PageKitHandlebars} from '@financial-times/dotcom-server-handlebars/dist/
 import ifEquals from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifSome'
 import ifSome from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifSome'
 
-import nMessagingPresenter from '../src/handlebars-helpers/nMessagingPresenter'
+import nMessagingPresenter from '../server/nMessagingPresenter'
 import proxy from './proxy-controller'
 
 const app = express()

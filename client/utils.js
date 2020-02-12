@@ -1,6 +1,6 @@
 const cookies = require('js-cookie');
 
-const manifest = require('../../manifest');
+const manifest = require('../manifest');
 const LOCAL_COUNTER_COOKIE_NAME = 'nMessagingEventCounter';
 const COOKIE_LIFE_MINUTES = 5;
 

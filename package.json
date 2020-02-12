@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "repository": "Financial-Times/n-messaging-client",
   "description": "Lightweight first party messaging for use with \"The Brain\"",
-  "main": "main.js",
+  "main": "main-server.js",
   "scripts": {
     "precommit": "node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",

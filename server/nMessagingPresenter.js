@@ -1,5 +1,4 @@
-'use strict';
-const MANIFEST = require('../../manifest');
+const MANIFEST = require('../manifest');
 
 const BOTTOM_SLOT_FLAG = 'messageSlotBottom';
 const TOP_SLOT_FLAG = 'messageSlotTop';
@@ -30,7 +29,7 @@ const getConfig = (position, root, flags) => {
 	);
 };
 
-const SlotPresenter = class SlotPresenter {
+class Presenter {
 
 	constructor (_data) {
 		this._data = _data || {};
@@ -41,6 +40,12 @@ const SlotPresenter = class SlotPresenter {
 		this.hasMessage = !!(this.data.variant && this.data.path);
 	}
 
-};
+}
 
-module.exports = SlotPresenter;
+module.exports = (context, options) => {
+	if (options.hash) Object.assign(context, options.hash);
+	if (options.data) {
+		let nMessagingPresenter = new Presenter(context);
+		return options.fn(context, { data: { nMessagingPresenter } } );
+	}
+};

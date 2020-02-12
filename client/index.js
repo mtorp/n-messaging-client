@@ -1,7 +1,7 @@
 const fetchAsyncConfig = require('./next-messaging-guru-client');
 const topSlot = require('./top-slot');
 const bottomSlot = require('./bottom-slot');
-const manifest = require('../../manifest');
+const manifest = require('../manifest');
 
 module.exports = {
 	init: function () {
@@ -39,7 +39,7 @@ module.exports = {
 	},
 	setupHandler (path) {
 		try {
-			if (path) return require(`../components/${path}/main`);
+			if (path) return require(`./components/${path}/main`);
 		} catch (error) {
 			// Not all variants have a custom setup files and therefore this prevents an error being throw
 			console.warn(error);
