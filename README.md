@@ -53,7 +53,7 @@ Now you can inject the message "slot" template in the relevant place in your mar
   <h1>My Example Page</h1>
 </div>
 
-{{> n-messaging-client/templates/slot type='bottom'}}
+{{> n-messaging-client/server/templates/slot type='bottom'}}
 ```
 
 Import `n-messaging-client`'s styles to your main css entry.

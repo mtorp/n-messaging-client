@@ -18,23 +18,23 @@
 
 		{{#ifEquals flags.teamTrialTest 'variant'}}
 			<!-- Teal Version -->
-			{{#> n-messaging-client/templates/components/o-banner
+			{{#> n-messaging-client/server/templates/components/o-banner
 				renderOpen=true
 				themeProduct=true
 				small=true
 			}}
 				{{> messageContent}}
-			{{/n-messaging-client/templates/components/o-banner}}
+			{{/n-messaging-client/server/templates/components/o-banner}}
 
 		{{else}}
 			<!-- White Version -->
-			{{#> n-messaging-client/templates/components/o-banner
+			{{#> n-messaging-client/server/templates/components/o-banner
 				renderOpen=true
 				themeMarketing=true
 				small=true
 			}}
 				{{> messageContent}}
-			{{/n-messaging-client/templates/components/o-banner}}
+			{{/n-messaging-client/server/templates/components/o-banner}}
 
 		{{/ifEquals}}
 </div>

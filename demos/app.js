@@ -15,7 +15,7 @@ app.set('view engine', 'html')
 
 const partialPaths = {}
 partialPaths[__dirname + '/templates/partials'] = '**/*.html'
-partialPaths[__dirname + '/../..'] = 'n-messaging-client/templates/**/*.html'
+partialPaths[__dirname + '/../..'] = 'n-messaging-client/server/templates/**/*.html'
 
 const helpers = { nMessagingPresenter, ifEquals, ifSome }
 

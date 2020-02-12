@@ -14,7 +14,7 @@ const relevantFlag = (type) => {
 	}[type];
 };
 const getVariantConfig = (variant) => (MANIFEST && MANIFEST[variant]) || {};
-const resolvePartialPath = (path) => path && `n-messaging-client/templates/partials/${path}`;
+const resolvePartialPath = (path) => path && `n-messaging-client/server/templates/partials/${path}`;
 
 const getConfig = (position, root, flags) => {
 	const variant = flags(relevantFlag(position));
@@ -38,6 +38,7 @@ class Presenter {
 		this.data = getConfig(this.position, root, parseFlagsObject(root.flags));
 
 		this.hasMessage = !!(this.data.variant && this.data.path);
+          console.log(this.data.path)
 	}
 
 }
