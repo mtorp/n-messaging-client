@@ -140,8 +140,7 @@ module.exports = {
 	marketsData : {
 		path: 'bottom/markets-data'
 	},
-	dailyDigestTest : {
-		path: 'bottom/lazy',
-		lazy: true
+	oneClickDailyDigest: {
+		path: 'bottom/oneclick-daily-digest'
 	}
 };

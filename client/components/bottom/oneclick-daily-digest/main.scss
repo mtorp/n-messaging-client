@@ -1,0 +1,57 @@
+.o-banner_success-icon-tick {
+	@include oIconsContent(
+		$icon-name: 'tick',
+		$color: oColorsMix('black', 'jade', $percentage: 43),
+		$size: 27
+	);
+	position: relative;
+	float: left;
+}
+
+.o-banner_button-browse {
+	@include oButtonsContent($opts: ('type': 'secondary'));
+	color: oColorsMix('black', 'jade', $percentage: 43);
+	border-color: oColorsMix('black', 'jade', $percentage: 43);
+	-webkit-font-smoothing: antialiased;
+	@include oTypographySans($scale: 0);
+}
+
+.o-banner__action  .o-banner_button-browse:hover {
+	color: oColorsMix('black', 'jade', $percentage: 43);
+	border-color: oColorsMix('black', 'jade', $percentage: 43);
+}
+
+.o-banner_success-background {
+	background: oColorsMix('jade', $percentage: 20);
+	color: oColorsMix('black', 'jade', $percentage: 43);
+}
+
+.o-banner_signup-content {
+	position: relative;
+	max-width: inherit;
+	display: contents;
+}
+
+.o-banner_success-content {
+	position: relative;
+	max-width: inherit;
+	display: contents;
+	font-family: MetricWeb,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 16px;
+}
+
+.o-banner_is-visible {
+	display: none;
+}
+.o-banner_button-signup {
+	@include oButtonsContent($opts: ('type': 'primary'));
+}
+
+.o-banner__close-color {
+	@include oIconsContent(
+		$icon-name: 'cross',
+		$color: oColorsMix('black', 'jade', $percentage: 43),
+		$size: 27
+	);
+}
