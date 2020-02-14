@@ -13,7 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "@financial-times/dotcom-server-handlebars": "^0.6.0",
-    "@financial-times/n-gage": "^3.6.0",
+    "@financial-times/n-gage": "^v4.0.0-beta.2",
     "bower": "^1.8.8",
     "chai": "^4.1.2",
     "cookie-parser": "^1.4.4",
@@ -21,6 +21,7 @@
     "mocha": "^5.2.0",
     "node-sass": "^4.13.1",
     "nodemon": "^1.17.5",
+    "postcss": "^7.0.26",
     "request": "^2.87.0",
     "sinon": "^6.0.0",
     "snyk": "^1.168.0",
