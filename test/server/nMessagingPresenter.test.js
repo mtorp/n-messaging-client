@@ -2,13 +2,11 @@ const MESSAGING_PRESENTER = '../../server/nMessagingPresenter';
 
 const { expect } = require('chai');
 const sinon = require('sinon');
-const proxyquire = require('proxyquire');
 const nMessagingPresenter = require(MESSAGING_PRESENTER);
 
 describe('nMessagingPresenter', () => {
 	let context;
 	let options;
-	let stub;
 
 	beforeEach(() => {
 		context = {};
@@ -17,7 +15,6 @@ describe('nMessagingPresenter', () => {
 			data: {},
 			fn: () => {}
 		};
-		stub = sinon.stub();
 	});
 
 	it('should copy properties from options.hash to the context', () => {
