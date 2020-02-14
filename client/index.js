@@ -42,12 +42,12 @@ module.exports = {
 			if (path) return require(`./components/${path}/main`);
 		} catch (error) {
 			// Not all variants have a custom setup files and therefore this prevents an error being throw
-			console.warn(error);
+			console.warn(error); // eslint-disable-line no-console
 			return;
 		}
 	},
 	handleError (error) {
+		console.error(error); // eslint-disable-line no-console
 		throw error;
-		console.error(error);
 	}
 };
