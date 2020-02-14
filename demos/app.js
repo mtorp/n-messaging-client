@@ -26,7 +26,7 @@ app.all('/__message/:id?', proxy(process.env.GURU_HOST || 'https://www.ft.com'))
 app.all('/__myft/*', proxy('https://www.ft.com'));
 app.post('/email-app-links', (req, res) => {res.sendStatus(200);});
 
-function getFlags (str) {
+function parseFlags (str) {
 	const pairs = str.split(',').map((pair) => pair.trim().split(':'));
 	// one day we can do this instead (Node v12): return Object.fromEntries(pairs)
 	const flags = {};
@@ -38,8 +38,9 @@ app.get('/', (req, res) => {
 	if (process.env.GURU_HOST) {
 		res.locals.guruEndpoint = process.env.GURU_HOST;
 	}
-	if (req.cookies['next-flags']) {
-		app.locals.flags = getFlags(req.headers['ft-flags'] || req.cookies['next-flags']);
+	const flags = req.headers['ft-flags'] || req.cookies['next-flags'];
+	if (flags) {
+		app.locals.flags = parseFlags(flags);
 	}
 	res.render('index',{ layout: 'custom-vanilla', title: 'Demo' });
 });
