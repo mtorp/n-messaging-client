@@ -26,8 +26,8 @@ app.all('/__message/:id?', proxy(process.env.GURU_HOST || 'https://www.ft.com'))
 app.all('/__myft/*', proxy('https://www.ft.com'));
 app.post('/email-app-links', (req, res) => {res.sendStatus(200);});
 
-function getFlagsFromCookie (cookie) {
-	const pairs = cookie.split(',').map((pair) => pair.trim().split(':'));
+function getFlags (str) {
+	const pairs = str.split(',').map((pair) => pair.trim().split(':'));
 	// one day we can do this instead (Node v12): return Object.fromEntries(pairs)
 	const flags = {};
 	pairs.forEach((pair) => flags[pair[0]] = pair[1]);
@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 		res.locals.guruEndpoint = process.env.GURU_HOST;
 	}
 	if (req.cookies['next-flags']) {
-		app.locals.flags = getFlagsFromCookie(req.cookies['next-flags']);
+		app.locals.flags = getFlags(req.headers['ft-flags'] || req.cookies['next-flags']);
 	}
 	res.render('index',{ layout: 'custom-vanilla', title: 'Demo' });
 });
