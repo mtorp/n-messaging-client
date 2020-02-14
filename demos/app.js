@@ -27,20 +27,20 @@ app.all('/__myft/*', proxy('https://www.ft.com'));
 app.post('/email-app-links', (req, res) => {res.sendStatus(200);});
 
 function getFlagsFromCookie(cookie) {
-  const pairs = cookie.split(',').map((pair) => pair.trim().split(':'))
-  // one day we can do this instead (Node v12): return Object.fromEntries(pairs)
-  const flags = {}
-  pairs.forEach((pair) => flags[pair[0]] = pair[1])
-  return flags
+	const pairs = cookie.split(',').map((pair) => pair.trim().split(':'))
+	// one day we can do this instead (Node v12): return Object.fromEntries(pairs)
+	const flags = {}
+	pairs.forEach((pair) => flags[pair[0]] = pair[1])
+	return flags
 }
 
 app.get('/', (req, res) => {
 	if (process.env.GURU_HOST) {
-          res.locals.guruEndpoint = process.env.GURU_HOST
-        }
-        if (req.cookies['next-flags']) {
-          app.locals.flags = getFlagsFromCookie(req.cookies['next-flags'])
-        }
+		res.locals.guruEndpoint = process.env.GURU_HOST
+	}
+	if (req.cookies['next-flags']) {
+		app.locals.flags = getFlagsFromCookie(req.cookies['next-flags'])
+	}
 	res.render('index',{ layout: 'custom-vanilla', title: 'Demo' });
 });
 

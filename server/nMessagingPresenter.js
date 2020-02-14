@@ -38,7 +38,6 @@ class Presenter {
 		this.data = getConfig(this.position, root, parseFlagsObject(root.flags));
 
 		this.hasMessage = !!(this.data.variant && this.data.path);
-          console.log(this.data.path)
 	}
 
 }
