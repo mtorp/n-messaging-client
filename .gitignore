@@ -4,7 +4,6 @@
 .eslintrc.js
 .pa11yci.js
 .stylelintrc
-package-lock.json
 
 /node*
 /npm-debug.log*
