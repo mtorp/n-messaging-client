@@ -13,11 +13,13 @@
 		- [Viewing messages](#viewing-messages)
 		- [Configuration](#configuration)
 		- [Under the hood](#under-the-hood)
+	- [Migration](#migration)
 * [Overview](#overview)
 	- [The Problem](#the-problem)
 	- [The Solution](#the-solution)
 	- [Parts of n-messaging-client](#parts-of)
 	- [Holistic Messaging Flow](#holistic-messaging-flow)
+* [Migration](#migration)
 
 ### Explainer
 Presentation: [FOMO - a guide](https://docs.google.com/presentation/d/1QpEVjZYQ3bGka2XNS0OrOMowaqyGxZFmwZY831xtEJA/edit)
@@ -141,6 +143,26 @@ For easy client-side validation of the message, (does it render correctly on the
 When you are ready to ship the best method is to: Remove the variant from the flag. Ship part 2 (`messaging.json`). And then when you are good to go, re-add the variant to the flag. This method avoids having to deploy code to turn the feature on.
 
 If you need to turn a message off in production quickly, simply remove the variant from the flag.
+
+### Migration
+
+#### v4.5 to v5.0
+
+In v4.5, there wasn't a clear separation of concerns between client and server code. In v5.0, to address this, the code has been separate into client/ and server/ folders.
+
+There is no JS or CSS changes needed because the main JS and SCSS files remain in the root folder.
+
+There is however HTML changes needed because the templates have been moved into the server/ folder. You will need to replace all instances of:
+
+```
+{{> n-messaging-client/templates/slot type='...'}}
+```
+
+with:
+
+```
+{{> n-messaging-client/server/templates/slot type='...'}}
+```
 
 ## Overview
 
