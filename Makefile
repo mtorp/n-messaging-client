@@ -19,7 +19,7 @@ demo-css:
 demo-build: demo-js demo-css
 	@$(DONE)
 
-demo-watch:
+demo-watch: demo-css # demo-css because node-sass doesn't build one at start of watch
 	webpack --watch --config demos/webpack.config.js &
 	node-sass --watch --include-path=bower_components --output demos/public demos/src/demo.scss &
 	nodemon --ext js,css,html --watch demos/ --watch server/ demos/start.js
