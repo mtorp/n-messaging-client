@@ -27,6 +27,7 @@ demo-watch:
 demo-run:
 	node demos/start
 
+# note that you could also use the proxy controller
 demo-with-guru: demo-build
 	GURU_HOST=http://local.ft.com:3002 node demos/start
 
