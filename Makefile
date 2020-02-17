@@ -22,7 +22,7 @@ demo-build: demo-js demo-css
 demo-watch:
 	webpack --watch --config demos/webpack.config.js &
 	node-sass --watch --include-path=bower_components --output demos/public demos/src/demo.scss &
-	nodemon --inspect --ext js,css,html --watch demos/ --watch server/ demos/start.js
+	nodemon --ext js,css,html --watch demos/ --watch server/ demos/start.js
 
 demo-run:
 	node demos/start
