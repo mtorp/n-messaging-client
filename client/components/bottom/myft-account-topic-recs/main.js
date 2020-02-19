@@ -4,14 +4,14 @@ import getCsrfToken from 'n-myft-ui/myft/ui/lib/get-csrf-token';
 import {FollowButton} from '@financial-times/x-follow-button';
 
 class MultipleFollowButtons extends Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 		this.state = {
 			isFollowed: {}
-		}
+		};
 		myft.init();
 	}
-	async onFollowClick(detail) {
+	async onFollowClick (detail) {
 		await myft[detail.action](detail.actorType, detail.actorId, detail.relationshipName, detail.subjectType, detail.subjectId, { token: detail.token });
 		// update isFollowed state
 		const replacement = Object.assign({}, this.state.isFollowed);
@@ -22,7 +22,7 @@ class MultipleFollowButtons extends Component {
 		}
 		this.setState({ isFollowed: replacement });
 	}
-	createFollowButton(topicId, topicName, isFollowed, csrfToken) {
+	createFollowButton (topicId, topicName, isFollowed, csrfToken) {
 		const followButton = createElement(FollowButton, {
 			conceptId: topicId,
 			conceptName: topicName,
@@ -35,8 +35,8 @@ class MultipleFollowButtons extends Component {
 		const oBannerAction = createElement('div', {className: 'o-banner__action'}, followButton);
 		return oBannerAction;
 	}
-	render() {
-		const followButtons = []
+	render () {
+		const followButtons = [];
 		for (let i = 0; i < this.props.topicIds.length; i++) {
 			const followButton = this.createFollowButton(this.props.topicIds[i], this.props.topicNames[i], this.state.isFollowed[this.props.topicIds[i]], this.props.csrfToken);
 			followButtons.push(followButton);
@@ -45,7 +45,7 @@ class MultipleFollowButtons extends Component {
 	}
 }
 
-export default function customSetup(banner, done, guruResult) {
+export default function customSetup (banner, done, guruResult) {
 	banner.bannerElement.classList.add('o-banner--small', 'n-messaging-client--one-click-myft-buttons');
 
 	// remove original follow button

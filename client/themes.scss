@@ -1,5 +1,5 @@
 @import "o-banner/main";
 @include oBannerAddTheme('myft', (
-    background-color: oColorsByName('claret-60'),
-    text-color: oColorsByName('white-60')
+	background-color: oColorsByName('claret-60'),
+	text-color: oColorsByName('white-60')
 ));
