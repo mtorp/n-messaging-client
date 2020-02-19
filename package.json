@@ -11,6 +11,11 @@
     "prepare": "npx snyk protect || npx snyk protect -d || true"
   },
   "license": "MIT",
+  "x-dash": {
+    "engine": {
+      "browser": "preact"
+    }
+  },
   "devDependencies": {
     "@financial-times/dotcom-server-handlebars": "0.6.0",
     "@financial-times/n-gage": "v4.0.0-beta.2",
@@ -22,6 +27,7 @@
     "node-sass": "^4.13.1",
     "nodemon": "^1.17.5",
     "postcss": "^7.0.26",
+    "preact": "^10.3.2",
     "request": "^2.87.0",
     "sinon": "^6.0.0",
     "snyk": "^1.168.0",
