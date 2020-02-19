@@ -15,7 +15,7 @@ export default function customSetup (banner, done) {
 		return;
 	}
 
-	function handleMyftResponse(followedConcepts) {
+	function handleMyftResponse (followedConcepts) {
 		if (followedConcepts.length && externalReferer) {
 			showHeaderTooltip(banner, followedConcepts);
 		} else if (!followedConcepts.length && articleTooltipSeenCount < 3) {
