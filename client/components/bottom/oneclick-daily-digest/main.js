@@ -1,9 +1,8 @@
 import signup from './signup';
-
 export default async (banner, done) => {
 	//if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
-      if(true) {
-		  function loadSuccessContent () {
+	if(true) {
+		function loadSuccessContent () {
 			const outerContainer = banner.bannerElement.querySelector('.o-banner__outer');
 			outerContainer.classList.add('o-banner_success-background');
 			const closeButton = banner.bannerElement.querySelector('.o-banner__close');
