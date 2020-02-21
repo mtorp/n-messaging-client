@@ -10,26 +10,24 @@ const ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME = 'FT_MyFT_article_tooltip';
 const {FT: {flags = {get: () => {}}} = {}} = window;
 let articleTooltipSeenCount = Cookies.get(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME) || 0;
 
-export default async (banner, done) => {
+export default function customSetup (banner, done) {
+	if(!externalReferer && articleTooltipSeenCount >= 3) {
+		return;
+	}
 
-	try {
-		if(!externalReferer && articleTooltipSeenCount >= 3) {
-			return;
-		}
-		await myftClient.init([{relationship: 'followed', type: 'concept'}]);
-		const followedConcepts = await myftClient.getAll('followed', 'concept');
-
+	function handleMyftResponse (followedConcepts) {
 		if (followedConcepts.length && externalReferer) {
 			showHeaderTooltip(banner, followedConcepts);
 		} else if (!followedConcepts.length && articleTooltipSeenCount < 3) {
 			showAboutTooltip(banner);
 		}
-
-		done();
-	} catch (e) {
-		done(e);
 	}
-};
+
+	myftClient.init([{relationship: 'followed', type: 'concept'}])
+		.then(() => myftClient.getAll('followed', 'concept'))
+		.then(handleMyftResponse)
+		.finally(() => done());
+}
 
 function showHeaderTooltip (banner, followedConcepts = []) {
 	if (!headerMyFTLogo) return;

@@ -1,4 +1,4 @@
-const swgLoader = require('@financial-times/n-swg').swgLoader;
+const swgLoader = require('n-swg').swgLoader;
 
 module.exports = (banner, done) => {
 	return swgLoader()
