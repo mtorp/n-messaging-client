@@ -11,5 +11,5 @@ const addUserToDigest = async () => {
 
 export default async () => {
 	await myftClient.init();
-	return  addUserToDigest();
+	return await addUserToDigest();
 };

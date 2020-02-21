@@ -39,6 +39,7 @@
     "o-typography": "^6.0.0",
     "o-overlay": "^3.0.0",
     "o-loading": "^4.0.0",
-    "o-tracking": "^2.0.6"
+    "o-tracking": "^2.0.6",
+    "next-myft-client": "^7.7.0"
   }
 }
