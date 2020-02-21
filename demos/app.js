@@ -1,7 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import {PageKitHandlebars} from '@financial-times/dotcom-server-handlebars/dist/node/PageKitHandlebars';
-import ifEquals from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifSome';
+import ifEquals from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifEquals';
 import ifSome from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifSome';
 
 import nMessagingPresenter from '../server/nMessagingPresenter';
