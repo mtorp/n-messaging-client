@@ -1,18 +1,15 @@
-'use strict';
-
-const nWebpack = require('@financial-times/n-webpack');
-const path = require('path');
-
-const webpackConfig = nWebpack({
-	withBabelPolyfills: false,
-	entry: {
-		'./public/main.js': './demos/src/demo.js',
-		'./public/main.css': './demos/src/demo.scss'
+module.exports = {
+	mode: 'development',
+	resolve: {
+		modules: [__dirname + '/../bower_components', __dirname + '/../node_modules'],
+		descriptionFiles: ['bower.json', 'package.json'],
+		mainFields: ['browser', 'main'],
+		mainFiles: ['main', 'index', 'main-client']
 	},
-	includes: [
-		path.join(__dirname, '../')
-	],
-	exclude: [/node_modules/]
-});
-
-module.exports = webpackConfig;
+	output: {
+		path: __dirname + '/public/'
+	},
+	entry: {
+		'demo': './demos/src/demo'
+	}
+};

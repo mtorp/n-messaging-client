@@ -4,38 +4,32 @@ node_modules/@financial-times/n-gage/index.mk:
 
 -include node_modules/@financial-times/n-gage/index.mk
 
-link-templates:
-	@echo "Creating symlink to mimic bower_component setup /templates -> public/n-messaging-client"
-	mkdir -p "$(CURDIR)/public/n-messaging-client"
-	ln -sf "$(CURDIR)/templates" "$(CURDIR)/public/n-messaging-client/"
+demo-certs:
+	cd demos && $(SHELL) make-certs.sh
+	@$(DONE)
 
-demo-build: link-templates
+demo-js:
 	webpack --config demos/webpack.config.js
 	@$(DONE)
 
-demo-build-watch: link-templates
+demo-css:
+	node-sass --include-path=bower_components --include-path=node_modules --output demos/public demos/src/demo.scss
+	@$(DONE)
+
+demo-build: demo-js demo-css
+	@$(DONE)
+
+demo-watch: demo-css # demo-css because node-sass doesn't build one at start of watch
 	webpack --watch --config demos/webpack.config.js &
-	@$(DONE)
+	node-sass --watch --include-path=bower_components --include-path=node_modules --output demos/public demos/src/demo.scss &
+	nodemon --ext js,css,html --watch demos/ --watch server/ demos/start.js
 
-demo: demo-build-watch
-	@DEMO_MODE=true nodemon --inspect --ext html,css --watch public --watch templates demos/app.js
+demo-run:
+	node demos/start
 
-run:
-	@DEMO_MODE=true node demos/app
-
+# note that you could also use the proxy controller
 demo-with-guru: demo-build
-	@GURU_HOST=http://local.ft.com:3002 DEMO_MODE=true node demos/app
-
-a11y: demo-build
-	@PA11Y=true DEMO_MODE=true node demos/app
-	@$(DONE)
+	GURU_HOST=http://local.ft.com:3002 node demos/start
 
 test: verify
-	make smoke unit-test
-
-unit-test:
 	mocha --recursive
-
-smoke:
-	export TEST_URL=http://localhost:5005; \
-	make a11y
