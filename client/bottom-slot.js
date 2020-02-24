@@ -79,7 +79,7 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 				banner.open();
 			}
 		}
-		customSetup(banner, customSetupCallback, guruResult);
+		customSetup(banner, customSetupCallback, guruResult, trackEventAction);
 	} else {
 		banner.open();
 	}

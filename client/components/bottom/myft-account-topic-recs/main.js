@@ -11,16 +11,22 @@ class MultipleFollowButtons extends Component {
 		};
 		myft.init();
 	}
-	async onFollowClick (detail) {
-		await myft[detail.action](detail.actorType, detail.actorId, detail.relationshipName, detail.subjectType, detail.subjectId, { token: detail.token });
-		// update isFollowed state
-		const replacement = Object.assign({}, this.state.isFollowed);
-		if (detail.action === 'add') {
-			replacement[detail.subjectId] = true;
-		} else {
-			replacement[detail.subjectId] = false;
-		}
-		this.setState({ isFollowed: replacement });
+	onFollowClick (detail) {
+		myft[detail.action](detail.actorType, detail.actorId, detail.relationshipName, detail.subjectType, detail.subjectId, { token: detail.token })
+			.then(() => {
+				// send tracking events
+				if (detail.action === 'add') {
+					this.props.trackEventAction('act', detail.subjectId);
+				}
+				// update view component's isFollowed state
+				const replacement = Object.assign({}, this.state.isFollowed);
+				if (detail.action === 'add') {
+					replacement[detail.subjectId] = true;
+				} else {
+					replacement[detail.subjectId] = false;
+				}
+				this.setState({ isFollowed: replacement });
+			});
 	}
 	createFollowButton (topicId, topicName, isFollowed, csrfToken) {
 		const followButton = createElement(FollowButton, {
@@ -45,7 +51,7 @@ class MultipleFollowButtons extends Component {
 	}
 }
 
-export default function customSetup (banner, done, guruResult) {
+export default function customSetup (banner, done, guruResult, trackEventAction) {
 	banner.bannerElement.classList.add('o-banner--small', 'n-messaging-client--one-click-myft-buttons');
 
 	// remove original follow button
@@ -65,7 +71,7 @@ export default function customSetup (banner, done, guruResult) {
 	const csrfToken = getCsrfToken();
 	const topicIds = guruResult.renderData.topicIds || [];
 	const topicNames = guruResult.renderData.topicNames || [];
-	const followButtons = createElement(MultipleFollowButtons, { topicIds, topicNames, csrfToken });
+	const followButtons = createElement(MultipleFollowButtons, { topicIds, topicNames, csrfToken, trackEventAction });
 	render(followButtons, actions);
 
 	done();
