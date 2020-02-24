@@ -3,7 +3,7 @@ import getCsrfToken from 'n-myft-ui/myft/ui/lib/get-csrf-token';
 const csrfToken = getCsrfToken();
 
 const addUserToDigest = () => {
-	return myft.add('user', null, 'preferred', 'preference', 'email-digest', { csrfToken, 
+	return myft.add('user', null, 'preferred', 'preference', 'email-digest', { csrfToken,
 		_rel: {
 			type: 'daily',
 			sendTime:'every morning'
