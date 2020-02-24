@@ -1,5 +1,5 @@
 import signup from './signup';
-export default async (banner, done) => {
+export default (banner, done) => {
 	//if (window.FT && window.FT.flags && window.FT.flags.oneClickDailyDigest) {
 	if(true) {
 		function loadSuccessContent () {
@@ -13,14 +13,14 @@ export default async (banner, done) => {
 			successContent.classList.remove('o-banner_is-visible');
 		}
 
-		async function handleSignUpClick (evt) {
+		function handleSignUpClick (evt) {
 			evt.preventDefault();
 			function logError (err) {
 				/* eslint no-console:0 */
 				console.log({ info: 'could not add user to the daily digest', err });
 			}
 
-			await signup().then(loadSuccessContent).catch(logError);
+			signup().then(loadSuccessContent).catch(logError);
 			return false;
 		}
 
