@@ -14,10 +14,6 @@ class MultipleFollowButtons extends Component {
 	onFollowClick (detail) {
 		myft[detail.action](detail.actorType, detail.actorId, detail.relationshipName, detail.subjectType, detail.subjectId, { token: detail.token })
 			.then(() => {
-				// send tracking events
-				if (detail.action === 'add') {
-					this.props.trackEventAction('act', detail.subjectId);
-				}
 				// update view component's isFollowed state
 				const replacement = Object.assign({}, this.state.isFollowed);
 				if (detail.action === 'add') {
@@ -26,6 +22,12 @@ class MultipleFollowButtons extends Component {
 					replacement[detail.subjectId] = false;
 				}
 				this.setState({ isFollowed: replacement });
+			})
+			.finally(() => {
+				// send tracking events, even if there's been any issue with myFT API
+				if (detail.action === 'add') {
+					this.props.trackEventAction('act', detail.subjectId);
+				}
 			});
 	}
 	createFollowButton (topicId, topicName, isFollowed, csrfToken) {
