@@ -33,6 +33,7 @@ module.exports = function ({ guruEndpoint='/__message', name, guruQueryString }=
 		// coupled to o-banner's client-side JS API.
 		.then(json => {
 			const validBannerThemes = [
+				'myft',
 				'product',
 				'marketing'
 			];

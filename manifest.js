@@ -143,5 +143,9 @@ module.exports = {
 	dailyDigestTest : {
 		path: 'bottom/lazy',
 		lazy: true
+	},
+	myFtAccountTopicRecs: {
+		path: 'bottom/myft-account-topic-recs',
+		lazy: true
 	}
 };
