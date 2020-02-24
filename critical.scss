@@ -11,7 +11,7 @@ $o-tooltip-is-silent : false;
 @import 'o-banner/main';
 @import "o-tooltip/main";
 @import "o-overlay/main";
-@import './src/components/top/nav-messaging-tooltip';
+@import './client/components/top/nav-messaging-tooltip';
 
 @include oFonts($opts: (
 	'metric': (
@@ -34,4 +34,4 @@ $o-tooltip-is-silent : false;
 	@include nUiZIndexFor('notification');
 }
 
-@import './src/components/bottom/cookie-consent/main';
+@import './client/components/bottom/cookie-consent/main';

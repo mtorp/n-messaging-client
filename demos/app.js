@@ -1,68 +1,48 @@
-/* eslint no-console:0 */
-'use strict';
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import {PageKitHandlebars} from '@financial-times/dotcom-server-handlebars/dist/node/PageKitHandlebars';
+import ifEquals from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifEquals';
+import ifSome from '@financial-times/dotcom-server-handlebars/dist/node/helpers/ifSome';
 
-const { resolve } = require('path');
-const chalk = require('chalk');
-const express = require('@financial-times/n-internal-tool');
-const proxy = require('./proxy-controller');
+import nMessagingPresenter from '../server/nMessagingPresenter';
+import proxy from './proxy-controller';
 
-const app = module.exports = express({
-	name: 'public',
-	systemCode: 'n-messaging-client-demo',
-	withFlags: true,
-	withHandlebars: true,
-	withNavigation: false,
-	withAnonMiddleware: false,
-	hasHeadCss: false,
-	layoutsDir: resolve(__dirname,'./templates/layouts'),
-	viewsDirectory: '/demos/templates',
-	partialsDirectory: resolve(__dirname, '../public'),
-	directory: process.cwd(),
-	helpers: {
-		nMessagingPresenter: require('../main').presenter
-	},
-	demo: true,
-	s3o: false
-});
+const app = express();
+app.use(cookieParser());
+app.use('/public', express.static(__dirname + '/public'));
+app.set('views', __dirname + '/templates');
+app.set('view engine', 'html');
 
-app.locals.origami = {
-	css: 'o-header@7.2.8',
-	js: 'o-header@7.2.8'
-};
+const partialPaths = {};
+partialPaths[__dirname + '/templates/partials'] = '**/*.html';
+partialPaths[__dirname + '/../..'] = 'n-messaging-client/server/templates/**/*.html';
+
+const helpers = { nMessagingPresenter, ifEquals, ifSome };
+
+const renderer = new PageKitHandlebars({ helpers, partialPaths });
+app.engine('html', renderer.engine);
 
 app.all('/__message/:id?', proxy(process.env.GURU_HOST || 'https://www.ft.com'));
+app.all('/__myft/*', proxy('https://www.ft.com'));
 app.post('/email-app-links', (req, res) => {res.sendStatus(200);});
 
-app.get('/*', (req, res) => {
-	if (process.env.GURU_HOST) res.locals.guruEndpoint = process.env.GURU_HOST;
+function parseFlags (str) {
+	const pairs = str.split(',').map((pair) => pair.trim().split(':'));
+	// one day we can do this instead (Node v12): return Object.fromEntries(pairs)
+	const flags = {};
+	pairs.forEach((pair) => flags[pair[0]] = pair[1]);
+	return flags;
+}
+
+app.get('/', (req, res) => {
+	if (process.env.GURU_HOST) {
+		res.locals.guruEndpoint = process.env.GURU_HOST;
+	}
+	const flags = req.headers['ft-flags'] || req.cookies['next-flags'];
+	if (flags) {
+		app.locals.flags = parseFlags(flags);
+	}
 	res.render('index',{ layout: 'custom-vanilla', title: 'Demo' });
 });
 
-const PORT = process.env.PORT || 5005;
-
-const listen = app.listen(PORT);
-
-function runPa11yTests () {
-	const spawn = require('child_process').spawn;
-	const pa11y = spawn('pa11y-ci');
-
-	pa11y.stdout.on('data', (data) => {
-		console.log(chalk.bold.green(`${data}`)); //eslint-disable-line
-	});
-
-	pa11y.stderr.on('data', (error) => {
-		console.log(chalk.bold.red(`${error}`)); //eslint-disable-line
-	});
-
-	pa11y.on('close', (code) => {
-		process.exit(code);
-	});
-}
-
-listen
-	.then(() => console.log(`demo running on port ${PORT}. ENSURE YOU ACCESS VIA LOCAL.FT.COM TO USE COOKIES.`))
-	.catch(error => console.log(error));
-
-if (process.env.PA11Y === 'true') {
-	listen.then(runPa11yTests);
-}
+module.exports = app;

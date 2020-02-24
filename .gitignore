@@ -4,14 +4,15 @@
 .eslintrc.js
 .pa11yci.js
 .stylelintrc
-package-lock.json
 
 /node*
 /npm-debug.log*
-/public*
+public/
 /pa11y_screenCapture/*
 
 /.haikro-cache/
 /.idea/
 /.sass-cache/
 /bower_components/
+/demos/self-signed-ssl-certificate.pem
+/demos/self-signed-ssl-key.pem
