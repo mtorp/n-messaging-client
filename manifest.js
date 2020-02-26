@@ -50,9 +50,6 @@ module.exports = {
 	onboardingPremium: {
 		path: 'bottom/onboarding-premium'
 	},
-	onboardingApp: {
-		path: 'bottom/onboarding-app'
-	},
 	onboardingRegion: {
 		path: 'top/onboarding-region',
 		tooltip: true
