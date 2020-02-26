@@ -44,9 +44,6 @@
 .o-banner_is-visible {
 	display: none;
 }
-.o-banner_button-signup {
-	@include oButtonsContent($opts: ('type': 'primary'));
-}
 
 .o-banner__close-color {
 	@include oIconsContent(
