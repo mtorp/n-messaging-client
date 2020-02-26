@@ -1,3 +1,5 @@
+const xEngine = require('@financial-times/x-engine/src/webpack');
+
 module.exports = {
 	mode: 'development',
 	resolve: {
@@ -6,6 +8,9 @@ module.exports = {
 		mainFields: ['browser', 'main'],
 		mainFiles: ['main', 'index', 'main-client']
 	},
+	plugins: [
+		xEngine()
+	],
 	output: {
 		path: __dirname + '/public/'
 	},

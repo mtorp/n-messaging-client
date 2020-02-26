@@ -50,9 +50,6 @@ module.exports = {
 	onboardingPremium: {
 		path: 'bottom/onboarding-premium'
 	},
-	onboardingApp: {
-		path: 'bottom/onboarding-app'
-	},
 	onboardingRegion: {
 		path: 'top/onboarding-region',
 		tooltip: true
@@ -142,5 +139,9 @@ module.exports = {
 	},
 	oneClickDailyDigest: {
 		path: 'bottom/oneclick-daily-digest'
+	},
+	myFtAccountTopicRecs: {
+		path: 'bottom/myft-account-topic-recs',
+		lazy: true
 	}
 };
