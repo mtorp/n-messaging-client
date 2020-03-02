@@ -144,5 +144,8 @@ module.exports = {
 	myFtAccountTopicRecs: {
 		path: 'bottom/myft-account-topic-recs',
 		lazy: true
+	},
+	usElection2020Promo: {
+		path: 'bottom/us-election-2020-promo'
 	}
 };
