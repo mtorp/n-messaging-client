@@ -1,6 +1,21 @@
 <div class="n-messaging-client-messaging-banner">
-	{{#> n-messaging-client/server/templates/components/o-banner renderOpen=true }}
-	<div class="o-banner__inner" data-o-banner-inner>
+	{{#> n-messaging-client/server/templates/components/o-banner renderOpen=true small=true }}
+	<!-- front banner -->
+	<div class="o-banner__inner" data-o-banner-inner data-n-messaging-daily-digest-front>
+		<div class="o-banner__content">
+			<p>
+				<strong>Sign up to the myFT daily digest.</strong>
+				Receive the latest news from topics you follow on myFT straight to your inbox
+			</p>
+		</div>
+		<div class="o-banner__actions">
+			<div class="o-banner__action">
+				<a href="#" class="o-banner__button" data-daily-digest-sign-up>Sign up</a>
+			</div>
+		</div>
+	</div>
+	<!-- back banner -->
+	<div class="o-banner__inner n-messaging-daily-digest--back n-messaging-daily-digest--hidden" data-o-banner-inner data-n-messaging-daily-digest-back>
 		<div class="o-banner__content o-banner__content--long">
 			<p>
 				<strong>Great! You're all set for the daily Email Digest.</strong>
@@ -10,10 +25,10 @@
 		<div class="o-banner__content o-banner__content--short">
 			<p>
 				<strong>Great! You're all set.</strong>
-				Get more FT content to your inbox
+				Get even more FT content deliverd straight to your inbox
 			</p>
 		</div>
-		<div class="o-banner__actions">
+		<div class="o-banner__actions" data-daily-digest-actions>
 			<div class="o-banner__action">
 				<a href="#" class="o-banner__button">Browse all newsletters</a>
 			</div>

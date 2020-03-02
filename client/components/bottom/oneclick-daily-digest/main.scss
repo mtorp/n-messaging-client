@@ -1,25 +1,41 @@
-.n-messaging-client-messaging-banner--success {
-	.o-banner__content {
-		&--short {
-			@include oGridRespondTo($until: M) {
-				display: flex;
+.n-messaging-daily-digest {
+	&--hidden.o-banner__inner {
+		display: none;
+	}
+	&--back {
+		.o-banner__content {
+			&--short {
+				@include oGridRespondTo($until: M) {
+					display: flex;
+				}
 			}
-		}
-		&--long {
-			@include oGridRespondTo($from: M) {
-				display: flex;
+			&--long {
+				@include oGridRespondTo($from: M) {
+					display: flex;
+				}
 			}
-		}
-		&:before {
-			@include oIconsContent(
-				$icon-name: 'tick',
-				$color: oColorsMix('black', 'jade', $percentage: 43),
-				$size: 80
-			);
-			content: '';
-			margin-right: 20px;
-		}
+			&:before {
+				@include oGridRespondTo($until: M) {
+					@include oIconsContent(
+						$icon-name: 'tick',
+						$color: oColorsMix('black', 'jade', $percentage: 43),
+						$size: 60
+					);
+					min-width: 60px;
+				}
+				@include oGridRespondTo($from: M) {
+					@include oIconsContent(
+						$icon-name: 'tick',
+						$color: oColorsMix('black', 'jade', $percentage: 43),
+						$size: 80
+					);
+					min-width: 80px;
+				}
+				content: '';
+				margin-right: 10px;
+			}
 
-		align-items: center;
+			align-items: center;
+		}
 	}
 }
