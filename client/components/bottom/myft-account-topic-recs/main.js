@@ -7,28 +7,38 @@ class MultipleFollowButtons extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			isFollowed: {}
+			isFollowed: {},
+			myftInit: myft.init()
 		};
-		myft.init();
 	}
 	onFollowClick (detail) {
-		myft[detail.action](detail.actorType, detail.actorId, detail.relationshipName, detail.subjectType, detail.subjectId, { token: detail.token })
-			.then(() => {
-				// update view component's isFollowed state
-				const replacement = Object.assign({}, this.state.isFollowed);
-				if (detail.action === 'add') {
-					replacement[detail.subjectId] = true;
-				} else {
-					replacement[detail.subjectId] = false;
-				}
-				this.setState({ isFollowed: replacement });
-			})
-			.finally(() => {
-				// send tracking events, even if there's been any issue with myFT API
-				if (detail.action === 'add') {
-					this.props.trackEventAction('act', detail.subjectId);
-				}
-			});
+		const self = this;
+
+		function callMyft () {
+			return myft[detail.action](detail.actorType, detail.actorId, detail.relationshipName, detail.subjectType, detail.subjectId, { token: detail.token });
+		}
+		function updateFollowedState () {
+			// update view component's isFollowed state
+			const replacement = Object.assign({}, self.state.isFollowed);
+			if (detail.action === 'add') {
+				replacement[detail.subjectId] = true;
+			} else {
+				replacement[detail.subjectId] = false;
+			}
+			self.setState({ isFollowed: replacement });
+
+		}
+		function sendTrackingEvents () {
+			// send tracking events, even if there's been any issue with myFT API
+			if (detail.action === 'add') {
+				self.props.trackEventAction('act', detail.subjectId);
+			}
+		}
+
+		this.state.myftInit
+			.then(callMyft)
+			.then(updateFollowedState)
+			.finally(sendTrackingEvents);
 	}
 	createFollowButton (topicId, topicName, isFollowed, csrfToken) {
 		const followButton = createElement(FollowButton, {
@@ -49,7 +59,7 @@ class MultipleFollowButtons extends Component {
 			const followButton = this.createFollowButton(this.props.topicIds[i], this.props.topicNames[i], this.state.isFollowed[this.props.topicIds[i]], this.props.csrfToken);
 			followButtons.push(followButton);
 		}
-		return followButtons;
+		return createElement('div', {className: 'o-banner__actions'}, ...followButtons);
 	}
 }
 
@@ -74,7 +84,7 @@ export default function customSetup (banner, done, guruResult, trackEventAction)
 	const topicIds = guruResult.renderData.topicIds || [];
 	const topicNames = guruResult.renderData.topicNames || [];
 	const followButtons = createElement(MultipleFollowButtons, { topicIds, topicNames, csrfToken, trackEventAction });
-	render(followButtons, actions);
+	render(followButtons, actions.parentNode, actions);
 
 	done();
 }
